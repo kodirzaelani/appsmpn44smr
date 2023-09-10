@@ -16,15 +16,14 @@ class RoleUserSeeder extends Seeder
      */
     public function run()
     {
-          //assign permission to role
-          $role = Role::find('d79bec08-0666-4418-9f5f-ebaaac5076f2');
-          $permissions = Permission::all();
+        //assign permission to role
+        $role = Role::find('b95d1e04-20dc-4b02-aa11-d308f42af6a5');
+        $permissions = Permission::all();
 
-          $role->syncPermissions($permissions);
+        $role->syncPermissions($permissions);
 
-          //assign role with permission to user
-          $user = User::find('7d23404b-7595-4484-b99b-9722bdf81e7a');
-          $user->assignRole($role->name);
-
+        //assign role with permission to user
+        $user = User::find('d5391303-159c-4c3e-a428-1b7c467b599e');
+        $user->assignRole($role->name);
     }
 }
