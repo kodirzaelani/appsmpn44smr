@@ -9,14 +9,16 @@
     <meta name="author" content="">
     <link rel="icon" href="../images/favicon.ico">
 
-    <title>EduAdmin - Dashboard</title>
+    <title>SMPN 44 Samarinda</title>
 
     <!-- Vendors Style-->
-    <link rel="stylesheet" href="css/vendors_css.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/vendors_css.css">
 
     <!-- Style-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/skin_color.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/style.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/skin_color.css">
+    @stack('styles')
+    @livewireStyles
 
 </head>
 
@@ -2619,17 +2621,18 @@
 
 
     <!-- Vendor JS -->
-    <script src="js/vendors.min.js"></script>
+    <script src="{{ asset('') }}assets/frontend/js/vendors.min.js"></script>
     <!-- Corenav Master JavaScript -->
     <script src="corenav-master/coreNavigation-1.1.3.js"></script>
-    <script src="js/nav.js"></script>
+    <script src="{{ asset('') }}assets/frontend/js/nav.js"></script>
     <script src="../assets/vendor_components/OwlCarousel2/dist/owl.carousel.js"></script>
     <script src="../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
 
 
     <!-- EduAdmin front end -->
-    <script src="js/template.js"></script>
+    <script src="{{ asset('') }}assets/frontend/js/template.js"></script>
 
+    @livewireScripts
 
 </body>
 
