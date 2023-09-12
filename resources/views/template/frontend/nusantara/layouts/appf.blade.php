@@ -318,7 +318,7 @@
 
 
     <section class="bg-img pt-130 pb-50" data-overlay-light="5"
-        style="background-image: url(../images/front-end-img/banners/banner-2.jpg); background-position: top center;">
+        style="background-image: url({{ asset('') }}assets/images/banners/banner-2.jpeg); background-position: top center;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -358,8 +358,8 @@
                             <div class="col-lg-6 col-12 position-relative">
                                 <div class="media-list media-list-hover media-list-divided md-post mt-lg-0 mt-30">
                                     <a class="media media-single box-shadowed bg-white pull-up mb-15" href="#">
-                                        <img class="w-80 rounded ms-0" src="../images/front-end-img/avatar/1.jpg"
-                                            alt="...">
+                                        <img class="w-80 rounded ms-0"
+                                            src="{{ asset('') }}assets/images/avatar/1.jpg" alt="...">
                                         <div class="media-body fw-500">
                                             <h5 class="overflow-hidden text-overflow-h nowrap">Basic English for IBPS
                                                 SO/ IBPS PO/IBPS Clerk exams | 5 PM</h5>
@@ -368,8 +368,8 @@
                                         </div>
                                     </a>
                                     <a class="media media-single box-shadowed bg-white pull-up mb-15" href="#">
-                                        <img class="w-80 rounded ms-0" src="../images/front-end-img/avatar/2.jpg"
-                                            alt="...">
+                                        <img class="w-80 rounded ms-0"
+                                            src="{{ asset('') }}assets/images/avatar/2.jpg" alt="...">
                                         <div class="media-body fw-500">
                                             <h5 class="overflow-hidden text-overflow-h nowrap">Basic English for IBPS
                                                 SO/ IBPS PO/IBPS Clerk exams | 5 PM</h5>
@@ -378,8 +378,8 @@
                                         </div>
                                     </a>
                                     <a class="media media-single box-shadowed bg-white pull-up mb-15" href="#">
-                                        <img class="w-80 rounded ms-0" src="../images/front-end-img/avatar/3.jpg"
-                                            alt="...">
+                                        <img class="w-80 rounded ms-0"
+                                            src="{{ asset('') }}assets/images/avatar/3.jpg" alt="...">
                                         <div class="media-body fw-500">
                                             <h5 class="overflow-hidden text-overflow-h nowrap">Basic English for IBPS
                                                 SO/ IBPS PO/IBPS Clerk exams | 5 PM</h5>
@@ -388,8 +388,8 @@
                                         </div>
                                     </a>
                                     <a class="media media-single box-shadowed bg-white pull-up mb-0" href="#">
-                                        <img class="w-80 rounded ms-0" src="../images/front-end-img/avatar/4.jpg"
-                                            alt="...">
+                                        <img class="w-80 rounded ms-0"
+                                            src="{{ asset('') }}assets/images/avatar/4.jpg" alt="...">
                                         <div class="media-body fw-500">
                                             <h5 class="overflow-hidden text-overflow-h nowrap">Basic English for IBPS
                                                 SO/ IBPS PO/IBPS Clerk exams | 5 PM</h5>
@@ -440,7 +440,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/4.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/4.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -459,7 +460,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/6.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/6.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -478,7 +480,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/5.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -497,7 +500,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/2.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -516,7 +520,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -535,7 +540,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -554,7 +560,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/9.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -573,7 +580,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/10.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/10.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -598,7 +606,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/5.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -617,7 +626,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/2.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -636,7 +646,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -655,7 +666,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
