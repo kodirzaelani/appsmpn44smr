@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../images/favicon.ico">
+    <link rel="icon" href="{{ asset('') }}assets/images/favicon.ico">
 
     <title>SMPN 44 Samarinda</title>
 
@@ -86,7 +86,7 @@
         <nav hidden class="nav-dark nav-transparent">
             <div class="nav-header">
                 <a href="index.html" class="brand">
-                    <img src="../images/logo-light-text2.png" alt="" />
+                    <img src="{{ asset('') }}assets/images/logo-light-text2.png" alt="" />
                 </a>
                 <button class="toggle-bar">
                     <span class="ti-menu"></span>
@@ -2623,10 +2623,10 @@
     <!-- Vendor JS -->
     <script src="{{ asset('') }}assets/frontend/js/vendors.min.js"></script>
     <!-- Corenav Master JavaScript -->
-    <script src="corenav-master/coreNavigation-1.1.3.js"></script>
+    <script src="{{ asset('') }}assets/corenav-master/coreNavigation-1.1.3.js"></script>
     <script src="{{ asset('') }}assets/frontend/js/nav.js"></script>
-    <script src="../assets/vendor_components/OwlCarousel2/dist/owl.carousel.js"></script>
-    <script src="../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="{{ asset('') }}assets/vendor_components/OwlCarousel2/dist/owl.carousel.js"></script>
+    <script src="{{ asset('') }}assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
 
 
     <!-- EduAdmin front end -->
