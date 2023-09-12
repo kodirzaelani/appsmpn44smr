@@ -204,7 +204,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-3 col-12 d-none d-lg-block">
-                                <img src="../images/front-end-img/adv.jpg" class="img-fluid" alt="" />
+                                <img src="../images/front-end-img/adv.jpeg" class="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
@@ -441,7 +441,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/4.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/4.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -461,7 +461,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/6.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/6.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -481,7 +481,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/5.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -501,7 +501,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/2.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -521,7 +521,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -541,7 +541,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -561,7 +561,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -581,7 +581,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/10.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/3.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -607,7 +607,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/5.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -627,7 +627,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/2.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -647,7 +647,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -667,7 +667,7 @@
                                         <div class="box">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="{{ asset('') }}assets/images/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -692,7 +692,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -711,7 +712,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -730,7 +732,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/9.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/4.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -749,7 +752,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/10.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/3.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -774,7 +778,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/5.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -793,7 +798,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/2.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -812,7 +818,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -831,7 +838,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -856,7 +864,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -875,7 +884,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -894,7 +904,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/9.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -913,7 +924,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/10.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/10.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -938,7 +950,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/5.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/5.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -957,7 +970,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/2.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/2.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -976,7 +990,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -995,7 +1010,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1020,7 +1036,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/7.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1039,7 +1056,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/8.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1058,7 +1076,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/9.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1077,7 +1096,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/10.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/10.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1102,7 +1122,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/4.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/4.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1121,7 +1142,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/6.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/6.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1140,7 +1162,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/9.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1159,7 +1182,8 @@
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="box">
                                             <a href="#">
-                                                <img class="card-img-top" src="../images/front-end-img/courses/10.jpg"
+                                                <img class="card-img-top"
+                                                    src="{{ asset('') }}assets/images/courses/10.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="box-body">
@@ -1196,29 +1220,29 @@
                 <div class="col-12">
                     <div class="owl-carousel owl-theme owl-btn-1" data-nav-arrow="false" data-nav-dots="false"
                         data-items="6" data-md-items="4" data-sm-items="3" data-xs-items="2" data-xx-items="2">
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-1.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-1.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-2.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-2.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-3.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-3.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-4.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-4.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-5.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-5.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-6.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-6.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-7.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-7.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-8.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-8.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-9.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-9.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-10.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-10.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-11.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-11.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
-                        <div class="item"><img src="../images/front-end-img/unilogo/uni-12.jpg"
+                        <div class="item"><img src="../images/front-end-img/unilogo/uni-12.jpeg"
                                 class="img-fluid my-15 rounded box-shadowed pull-up" alt=""></div>
                     </div>
                 </div>
@@ -1257,7 +1281,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1284,7 +1308,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1311,7 +1335,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1338,7 +1362,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1371,7 +1395,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1398,7 +1422,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1425,7 +1449,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1452,7 +1476,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1485,7 +1509,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1512,7 +1536,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1539,7 +1563,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1566,7 +1590,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1599,7 +1623,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1626,7 +1650,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1653,7 +1677,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1680,7 +1704,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1713,7 +1737,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1740,7 +1764,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1767,7 +1791,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1794,7 +1818,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1827,7 +1851,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/9.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/9.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1854,7 +1878,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/8.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/8.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1881,7 +1905,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/1.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/1.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1908,7 +1932,7 @@
                                         <div class="card">
                                             <a href="#">
                                                 <img class="card-img-top"
-                                                    src="../images/front-end-img/courses/7.jpg"
+                                                    src="{{ asset('') }}assets/images/courses/7.jpeg"
                                                     alt="Card image cap">
                                             </a>
                                             <div class="position-absolute r-10 t-10">
@@ -1955,7 +1979,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/1.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/1.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -1983,7 +2007,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/2.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/2.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2010,7 +2034,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/3.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/3.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2038,7 +2062,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/4.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/4.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2064,7 +2088,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/5.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/3.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2091,7 +2115,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/6.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/2.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2118,7 +2142,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/7.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/3.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2146,7 +2170,7 @@
                             <div>
                                 <div class="d-flex align-items-center mb-30">
                                     <div class="me-15">
-                                        <img src="../images/front-end-img/avatar/8.jpg"
+                                        <img src="{{ asset('') }}assets/images/avatar/4.jpg"
                                             class="avatar avatar-lg rounded10" alt="">
                                     </div>
                                     <div class="d-flex flex-column fw-500">
@@ -2183,7 +2207,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card">
                         <a href="#">
-                            <img class="card-img-top" src="../images/front-end-img/courses/1.jpg"
+                            <img class="card-img-top" src="{{ asset('') }}assets/images/courses/1.jpeg"
                                 alt="Card image cap">
                         </a>
                         <div class="position-absolute r-10 t-10">
@@ -2205,7 +2229,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card">
                         <a href="#">
-                            <img class="card-img-top" src="../images/front-end-img/courses/2.jpg"
+                            <img class="card-img-top" src="{{ asset('') }}assets/images/courses/2.jpeg"
                                 alt="Card image cap">
                         </a>
                         <div class="position-absolute r-10 t-10">
@@ -2227,7 +2251,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card">
                         <a href="#">
-                            <img class="card-img-top" src="../images/front-end-img/courses/3.jpg"
+                            <img class="card-img-top" src="{{ asset('') }}assets/images/courses/3.jpeg"
                                 alt="Card image cap">
                         </a>
                         <div class="position-absolute r-10 t-10">
@@ -2249,7 +2273,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card">
                         <a href="#">
-                            <img class="card-img-top" src="../images/front-end-img/courses/4.jpg"
+                            <img class="card-img-top" src="{{ asset('') }}assets/images/courses/4.jpeg"
                                 alt="Card image cap">
                         </a>
                         <div class="position-absolute r-10 t-10">
@@ -2276,7 +2300,7 @@
     </section>
 
     <section class="py-50 bg-img countnm-bx"
-        style="background-image: url(../images/front-end-img/background/bg-3.jpg)" data-overlay="5"
+        style="background-image: url(../images/front-end-img/background/bg-3.jpeg)" data-overlay="5"
         data-aos="fade-up">
         <div class="container">
             <div class="row">
@@ -2335,7 +2359,8 @@
                 <div class="col-xl-4 col-md-4 col-12">
                     <div class="blog-post">
                         <div class="entry-image clearfix">
-                            <img class="img-fluid" src="../images/front-end-img/courses/1f.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('') }}assets/images/courses/1f.jpeg"
+                                alt="">
                         </div>
                         <div class="blog-detail">
                             <div class="entry-title mb-10">
@@ -2384,13 +2409,13 @@
                                 data-autoplay="true" data-items="1" data-md-items="1" data-sm-items="1"
                                 data-xs-items="1" data-xx-items="1">
                                 <div class="item">
-                                    <img src="../images/front-end-img/courses/2f.jpg" alt="">
+                                    <img src="{{ asset('') }}assets/images/courses/2f.jpeg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img src="../images/front-end-img/courses/3f.jpg" alt="">
+                                    <img src="{{ asset('') }}assets/images/courses/3f.jpeg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img src="../images/front-end-img/courses/4f.jpg" alt="">
+                                    <img src="{{ asset('') }}assets/images/courses/4f.jpeg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -2439,19 +2464,19 @@
                         <div class="entry-image clearfix">
                             <ul class="grid-post list-unstyled">
                                 <li>
-                                    <img class="img-fluid" src="../images/front-end-img/courses/5f.jpg"
+                                    <img class="img-fluid" src="{{ asset('') }}assets/images/courses/5f.jpeg"
                                         alt="">
                                 </li>
                                 <li>
-                                    <img class="img-fluid" src="../images/front-end-img/courses/6f.jpg"
+                                    <img class="img-fluid" src="{{ asset('') }}assets/images/courses/6f.jpeg"
                                         alt="">
                                 </li>
                                 <li>
-                                    <img class="img-fluid" src="../images/front-end-img/courses/7f.jpg"
+                                    <img class="img-fluid" src="{{ asset('') }}assets/images/courses/7f.jpeg"
                                         alt="">
                                 </li>
                                 <li>
-                                    <img class="img-fluid" src="../images/front-end-img/courses/8f.jpg"
+                                    <img class="img-fluid" src="{{ asset('') }}assets/images/courses/8f.jpeg"
                                         alt="">
                                 </li>
                             </ul>
@@ -2533,18 +2558,24 @@
                             <h4 class="footer-title">Our Gallery</h4>
                             <hr class="bg-primary mb-10 mt-0 d-inline-block mx-auto w-60">
                             <ul class="list-unstyled">
-                                <li><img src="../images/gallery/thumb/1.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/2.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/3.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/4.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/5.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/6.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/7.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/8.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/9.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/10.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/11.jpg" alt=""></li>
-                                <li><img src="../images/gallery/thumb/12.jpg" alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/1.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/2.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/3.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/4.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/5.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/6.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/7.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/8.jpeg"
+                                        alt=""></li>
+                                <li><img src="{{ asset('') }}assets/images/gallery/thumb/10.jpeg"
+                                        alt=""></li>
                             </ul>
                         </div>
                     </div>
