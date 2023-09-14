@@ -37,11 +37,6 @@
                         </a>
                     </li>
                     <li class="btn-group nav-item d-none d-xl-inline-block">
-                        <a href="mailbox.html" class="waves-effect waves-light nav-link svg-bt-icon" title="Mailbox">
-                            <i class="icon-Mailbox"><span class="path1"></span><span class="path2"></span></i>
-                        </a>
-                    </li>
-                    <li class="btn-group nav-item d-none d-xl-inline-block">
                         <a href="extra_taskboard.html" class="waves-effect waves-light nav-link svg-bt-icon"
                             title="Taskboard">
                             <i class="icon-Clipboard-check"><span class="path1"></span><span
@@ -58,22 +53,6 @@
                             class="waves-effect waves-light nav-link full-screen" title="Full Screen">
                             <i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
                         </a>
-                    </li>
-                    <li class="btn-group d-lg-inline-flex d-none">
-                        <div class="app-menu">
-                            <div class="search-bx mx-5">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="search" class="form-control" placeholder="Search"
-                                            aria-label="Search" aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit" id="button-addon3"><i
-                                                    class="ti-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </li>
                     <!-- Notifications -->
                     <li class="dropdown notifications-menu">
