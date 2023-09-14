@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../images/favicon.ico">
+    <link rel="icon" href="{{ asset('') }}assets/images/favicon.ico">
 
     <title>SPMN 44 - Dashboard</title>
 
     <!-- Vendors Style-->
-    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/vendors_css.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/backend/css/vendors_css.css">
 
     <!-- Style-->
-    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/style.css">
-    <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/skin_color.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/backend/css/style.css">
+    <link rel="stylesheet" href="{{ asset('') }}assets/backend/css/skin_color.css">
     @stack('styles')
     @livewireStyles
 </head>
@@ -791,7 +791,8 @@
                                 <div class="box-body p-xl-0">
                                     <div class="row align-items-center">
                                         <div class="col-12 col-lg-3"><img
-                                                src="../images/svg-icon/color-svg/custom-14.svg" alt=""></div>
+                                                src="{{ asset('') }}assets/images/svg-icon/color-svg/custom-14.svg"
+                                                alt=""></div>
                                         <div class="col-12 col-lg-9">
                                             <h2>Hello Johen, Welcome Back!</h2>
                                             <p class="text-white-50 mb-0 fs-16">
@@ -839,7 +840,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="box bg-dark pull-up"
-                                style="background-image: url(../images/svg-icon/color-svg/st-1.svg); background-position: right bottom; background-repeat: no-repeat;">
+                                style="background-image: url({{ asset('') }}assets/images/svg-icon/color-svg/st-1.svg); background-position: right bottom; background-repeat: no-repeat;">
                                 <div class="box-body">
                                     <div class="flex-grow-1">
                                         <div class="d-flex align-items-center pe-2 justify-content-between">
@@ -873,7 +874,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="box bg-dark pull-up"
-                                style="background-image: url(../images/svg-icon/color-svg/st-2.svg); background-position: right bottom; background-repeat: no-repeat;">
+                                style="background-image: url({{ asset('') }}assets/images/svg-icon/color-svg/st-2.svg); background-position: right bottom; background-repeat: no-repeat;">
                                 <div class="box-body">
                                     <div class="flex-grow-1">
                                         <div class="d-flex align-items-center pe-2 justify-content-between">
@@ -904,7 +905,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="box bg-dark pull-up"
-                                style="background-image: url(../images/svg-icon/color-svg/st-3.svg); background-position: right bottom; background-repeat: no-repeat;">
+                                style="background-image: url({{ asset('') }}assets/images/svg-icon/color-svg/st-3.svg); background-position: right bottom; background-repeat: no-repeat;">
                                 <div class="box-body">
                                     <div class="flex-grow-1">
                                         <div class="d-flex align-items-center pe-2 justify-content-between">
@@ -937,7 +938,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="box bg-dark pull-up"
-                                style="background-image: url(../images/svg-icon/color-svg/st-4.svg); background-position: right bottom; background-repeat: no-repeat;">
+                                style="background-image: url({{ asset('') }}assets/images/svg-icon/color-svg/st-4.svg); background-position: right bottom; background-repeat: no-repeat;">
                                 <div class="box-body">
                                     <div class="flex-grow-1">
                                         <div class="d-flex align-items-center pe-2 justify-content-between">
@@ -1410,7 +1411,7 @@
                     <div class="media-list media-list-hover mt-20">
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-success" href="#">
-                                <img src="../images/avatar/1.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/1.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1423,7 +1424,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-danger" href="#">
-                                <img src="../images/avatar/2.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/2.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1436,7 +1437,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-warning" href="#">
-                                <img src="../images/avatar/3.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/3.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1449,7 +1450,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-primary" href="#">
-                                <img src="../images/avatar/4.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/4.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1462,7 +1463,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-success" href="#">
-                                <img src="../images/avatar/1.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/1.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1475,7 +1476,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-danger" href="#">
-                                <img src="../images/avatar/2.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/2.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1488,7 +1489,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-warning" href="#">
-                                <img src="../images/avatar/3.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/3.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1501,7 +1502,7 @@
 
                         <div class="media py-10 px-0">
                             <a class="avatar avatar-lg status-primary" href="#">
-                                <img src="../images/avatar/4.jpg" alt="...">
+                                <img src="{{ asset('') }}assets/images/avatar/4.jpg" alt="...">
                             </a>
                             <div class="media-body">
                                 <p class="fs-16">
@@ -1743,7 +1744,7 @@
                     <div class="chat-msg user">
                         <div class="d-flex align-items-center">
                             <span class="msg-avatar">
-                                <img src="../images/avatar/2.jpg" class="avatar avatar-lg">
+                                <img src="{{ asset('') }}assets/images/avatar/2.jpg" class="avatar avatar-lg">
                             </span>
                             <div class="mx-10">
                                 <a href="#" class="text-dark hover-primary fw-bold">Mayra Sibley</a>
@@ -1761,7 +1762,7 @@
                                 <p class="text-muted fs-12 mb-0">3 minutes</p>
                             </div>
                             <span class="msg-avatar">
-                                <img src="../images/avatar/3.jpg" class="avatar avatar-lg">
+                                <img src="{{ asset('') }}assets/images/avatar/3.jpg" class="avatar avatar-lg">
                             </span>
                         </div>
                         <div class="cm-msg-text">
@@ -1771,7 +1772,7 @@
                     <div class="chat-msg user">
                         <div class="d-flex align-items-center">
                             <span class="msg-avatar">
-                                <img src="../images/avatar/2.jpg" class="avatar avatar-lg">
+                                <img src="{{ asset('') }}assets/images/avatar/2.jpg" class="avatar avatar-lg">
                             </span>
                             <div class="mx-10">
                                 <a href="#" class="text-dark hover-primary fw-bold">Mayra Sibley</a>
@@ -1799,8 +1800,8 @@
 
 
     <!-- Vendor JS -->
-    <script src="{{ asset('') }}assets/frontend/js/vendors.min.js"></script>
-    <script src="{{ asset('') }}assets/frontend/js/pages/chat-popup.js"></script>
+    <script src="{{ asset('') }}assets/backend/js/vendors.min.js"></script>
+    <script src="{{ asset('') }}assets/backend/js/pages/chat-popup.js"></script>
     <script src="{{ asset('') }}assets/icons/feather-icons/feather.min.js"></script>
 
     <script src="{{ asset('') }}assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
@@ -1808,9 +1809,9 @@
     <script src="{{ asset('') }}assets/vendor_components/fullcalendar/fullcalendar.js"></script>
 
     <!-- EduAdmin App -->
-    <script src="{{ asset('') }}assets/frontend/js/template.js"></script>
-    <script src="{{ asset('') }}assets/frontend/js/pages/dashboard3.js"></script>
-    <script src="{{ asset('') }}assets/frontend/js/pages/calendar.js"></script>
+    <script src="{{ asset('') }}assets/backend/js/template.js"></script>
+    <script src="{{ asset('') }}assets/backend/js/pages/dashboard3.js"></script>
+    <script src="{{ asset('') }}assets/backend/js/pages/calendar.js"></script>
     @livewireScripts
 
 </body>

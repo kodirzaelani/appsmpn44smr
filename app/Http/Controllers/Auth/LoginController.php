@@ -91,8 +91,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         if (auth()->user()->hasRole('superadmin')) {
-            return $this->redirectTo;
-            //  return 'backend/admin/home';
+            return 'backend/admin/home';
         }
         return $this->redirectTo;
     }
