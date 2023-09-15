@@ -7,40 +7,12 @@
                     <!-- sidebar menu-->
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">Dashboard & Apps</li>
-                        <li class="treeview">
-                            <a href="#">
+                        <li>
+                            <a href="{{ route('backend.dashboard') }}">
                                 <i class="icon-Layout-4-blocks"><span class="path1"></span><span
                                         class="path2"></span></i>
                                 <span>Dashboard</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-right pull-right"></i>
-                                </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="index.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard 1</a></li>
-                                <li><a href="index2.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        2</a></li>
-                                <li><a href="index3.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        3</a></li>
-                                <li><a href="index4.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        4</a></li>
-                                <li><a href="index5.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        5</a></li>
-                                <li><a href="index6.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        6</a></li>
-                                <li><a href="index7.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        7</a></li>
-                                <li><a href="index8.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dashboard
-                                        8</a></li>
-                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
@@ -114,14 +86,14 @@
                                 <li><a href="ui_border_utilities.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Border</a>
                                 </li>
-                                <li><a href="ui_buttons.html"><i class="icon-Commit"><span
-                                                class="path1"></span><span class="path2"></span></i>Buttons</a>
+                                <li><a href="ui_buttons.html"><i class="icon-Commit"><span class="path1"></span><span
+                                                class="path2"></span></i>Buttons</a>
                                 </li>
                                 <li><a href="ui_color_utilities.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Color</a>
                                 </li>
-                                <li><a href="ui_dropdown.html"><i class="icon-Commit"><span
-                                                class="path1"></span><span class="path2"></span></i>Dropdown</a>
+                                <li><a href="ui_dropdown.html"><i class="icon-Commit"><span class="path1"></span><span
+                                                class="path2"></span></i>Dropdown</a>
                                 </li>
                                 <li><a href="ui_dropdown_grid.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Dropdown
