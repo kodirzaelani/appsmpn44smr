@@ -581,8 +581,14 @@
                     class="icon-Settings-2"></span></a>
             <a href="#" class="link" data-bs-toggle="tooltip" title="Chat">
                 <i class="icon-Chat"><span class="path1"></span><span class="path2"></span></i></a>
-            <a href="javascript:void(0)" class="link" data-bs-toggle="tooltip" title="Logout"><span
-                    class="icon-Lock-overturning"><span class="path1"></span><span class="path2"></span></span></a>
+            <a class="link" href="{{ route('logout') }}" data-bs-toggle="tooltip" title="Logout"
+                onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                <span class="icon-Lock-overturning"><span class="path1"></span><span
+                        class="path2"></span></span></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </div>
     </aside>
 </div>
