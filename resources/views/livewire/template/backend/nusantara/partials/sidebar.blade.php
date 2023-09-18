@@ -14,6 +14,56 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
+
+                        @if (auth()->user()->can('settings.index'))
+                            <li class="header">LOGIN && CONFIGURATION</li>
+                            @if (auth()->user()->can('settings.index'))
+                            @endif
+                        @endif
+                        {{-- Authentication Menu  --}}
+                        @if (auth()->user()->can('roles.index') ||
+                                auth()->user()->can('permissions.index') ||
+                                auth()->user()->can('users.index'))
+                            <li
+                                class="treeview {{ setActive('backend/roles/index') . setActive('backend/permissions/index') . setActive('backend/users/index') }} {{ setOpen('backend/roles/index') . setOpen('backend/permissions/index') . setOpen('backend/users/index') }}">
+                                <a href="#">
+                                    <i class="icon-Chat-locked"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                    <span>Authentication</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-right pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can('permissions.index')
+                                        <li class="{{ setActive('backend/permissions/index') }}">
+                                            <a href="{{ route('backend.permissions.index') }}">
+                                                <i class="icon-Commit"><span class="path1"></span><span
+                                                        class="path2"></span></i>Permissions
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('roles.index')
+                                        <li class="{{ setActive('backend/roles/index') }}">
+                                            <a href="{{ route('backend.roles.index') }}">
+                                                <i class="icon-Commit"><span class="path1"></span><span
+                                                        class="path2"></span></i>Roles
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('users.index')
+                                        <li class="{{ setActive('backend/users/index') }}">
+                                            <a href="{{ route('backend.users.index') }}">
+                                                <i class="icon-Commit"><span class="path1"></span><span
+                                                        class="path2"></span></i>Users
+                                            </a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </li>
+                        @endif
+                        {{-- Authentication Menu  --}}
+
                         <li class="treeview">
                             <a href="#">
                                 <i span class="icon-Layout-grid"><span class="path1"></span><span
@@ -86,14 +136,14 @@
                                 <li><a href="ui_border_utilities.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Border</a>
                                 </li>
-                                <li><a href="ui_buttons.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Buttons</a>
+                                <li><a href="ui_buttons.html"><i class="icon-Commit"><span
+                                                class="path1"></span><span class="path2"></span></i>Buttons</a>
                                 </li>
                                 <li><a href="ui_color_utilities.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Color</a>
                                 </li>
-                                <li><a href="ui_dropdown.html"><i class="icon-Commit"><span class="path1"></span><span
-                                                class="path2"></span></i>Dropdown</a>
+                                <li><a href="ui_dropdown.html"><i class="icon-Commit"><span
+                                                class="path1"></span><span class="path2"></span></i>Dropdown</a>
                                 </li>
                                 <li><a href="ui_dropdown_grid.html"><i class="icon-Commit"><span
                                                 class="path1"></span><span class="path2"></span></i>Dropdown
