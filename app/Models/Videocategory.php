@@ -8,4 +8,79 @@ use Illuminate\Database\Eloquent\Model;
 class Videocategory extends Model
 {
     use HasFactory;
+    use Uuid;
+    protected $table        = 'videocategories';
+    protected $primaryKey   = 'id';
+    protected $guarded      = [];
+    protected $dateFormat = 'Y-m-d H:i:s';
+    protected $createdAt = ['created_at'];
+    protected $updatedAt = ['updated_at'];
+
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'videocategory_id');
+    }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($query) use ($term) {
+            $query->where('title', 'like', $term);
+        });
+    }
+
+    public function getImageUrlAttribute($value)
+    {
+        $imageUrl = "";
+
+        if (!is_null($this->image)) {
+            $directory = config('cms.image.directoryVideocategories');
+            $imagePath = public_path() . "/{$directory}" . $this->image;
+            if (file_exists($imagePath)) $imageUrl = asset("/{$directory}" . $this->image);
+        }
+
+        return $imageUrl;
+    }
+
+    public function getImageThumbUrlAttribute($value)
+    {
+        $imageThumbUrl = "";
+
+        if (!is_null($this->image)) {
+            $directory = config('cms.image.directoryVideocategories');
+            $ext       = substr(strrchr($this->image, '.'), 1);
+            $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
+            $imagePath = public_path() . "/{$directory}" . $thumbnail;
+            if (file_exists($imagePath)) $imageThumbUrl = asset("/$directory" . $thumbnail);
+        }
+
+        return $imageThumbUrl;
+    }
+
+    public function getStatusLabelAttribute()
+    {
+        //ADAPUN VALUENYA AKAN MENCETAK HTML BERDASARKAN VALUE DARI FIELD STATUS
+        if ($this->status == 0) {
+            return '<span class="badge badge-primary">Draft</span>';
+        }
+        return '<span class="badge badge-success">Published</span>';
+    }
+
+    // fungsi scope untuk manampilkan yang status publish
+    public function scopePublished($query)
+    {
+        return $query->where("status", "=", 1);
+    }
+
+    // fungsi scope untuk manampilkan yang status publish
+    public function scopeDraft($query)
+    {
+        return $query->where("status", "=", 0);
+    }
 }
