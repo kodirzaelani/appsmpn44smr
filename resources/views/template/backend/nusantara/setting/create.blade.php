@@ -64,7 +64,7 @@
                                     </li>
                                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#hero9"
                                             role="tab"><span class="hidden-sm-up"><i class="bi bi-back"></i></span>
-                                            <span class="hidden-xs-down">Hero Slider / Statis</span>
+                                            <span class="hidden-xs-down">Hero Slider / Static</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -142,8 +142,8 @@
                                                     <div class="form-group">
                                                         <label class="form-label">Description <span
                                                                 class="text-danger">*</span></label>
-                                                        <textarea id="editor1" rows="10" cols="80"
-                                                            class="form-control @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea>
+                                                        <textarea id="editor1" rows="5" class="form-control @error('description') is-invalid @enderror"
+                                                            name="description">{{ old('description') }}</textarea>
                                                         <div class="form-control-feedback"><small><code>Deskripsi Singkat
                                                                 </code></small></div>
                                                         @error('description')
@@ -727,7 +727,7 @@
                                                                 <div class="demo-radio-button">
                                                                     <input value="0" name="statushero"
                                                                         type="radio" id="radio_slider"
-                                                                        class="with-gap radio-col-success" />
+                                                                        class="with-gap radio-col-success" checked />
                                                                     <label for="radio_slider">Hero Slider</label>
                                                                     <input value="1" name="statushero"
                                                                         type="radio" id="radio_static"
@@ -737,7 +737,7 @@
                                                             </div>
 
                                                             <div id="hero_slider" class="form-group">
-                                                                <h5>Menu >> Hero Slider </h5>
+                                                                <h5>Menu >> Hero Static </h5>
                                                             </div>
                                                             <div class="box" id="link_hero">
                                                                 <div class="box-body">
@@ -814,7 +814,8 @@
                                                                         <div class="demo-radio-button">
                                                                             <input value=0 name="status_home"
                                                                                 type="radio" id="radio_23"
-                                                                                class="with-gap radio-col-success" />
+                                                                                class="with-gap radio-col-success"
+                                                                                checked />
                                                                             <label for="radio_23">Not Active</label>
                                                                             <input value=1 name="status_home"
                                                                                 type="radio" id="radio_24"

@@ -8,7 +8,7 @@
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">Dashboard & Apps</li>
                         <li>
-                            <a href="{{ route('backend.dashboard') }}">
+                            <a href="{{ route('backend.admin') }}">
                                 <i class="icon-Layout-4-blocks"><span class="path1"></span><span
                                         class="path2"></span></i>
                                 <span>Dashboard</span>
@@ -16,20 +16,42 @@
                         </li>
 
                         @if (auth()->user()->can('settings.index'))
-                            <li class="header">LOGIN && CONFIGURATION</li>
+                            <li class="header">SYSTEM CONFIGURATION</li>
                             @if (auth()->user()->can('settings.index'))
+                                <li
+                                    class="treeview {{ setActive('backend/allwidget') . setActive('backend/jenjangpendidikan') . setActive('backend/menu') . setActive('backend/settings') }} {{ setOpen('backend/allwidget') . setOpen('backend/jenjangpendidikan') . setOpen('backend/menu') . setOpen('backend/settings') }}">
+                                    <a href="#">
+                                        <i class="icon-Settings-2"><span class="path1"></span><span
+                                                class="path2"></span></i>
+                                        <span>Settings</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-right pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        @can('settings.index')
+                                            <li class="{{ setActive('backend/settings') }}">
+                                                <a href="{{ route('backend.settings') }}">
+                                                    <i class="icon-Commit"><span class="path1"></span><span
+                                                            class="path2"></span></i>General
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
+                                </li>
                             @endif
                         @endif
                         {{-- Authentication Menu  --}}
                         @if (auth()->user()->can('roles.index') ||
                                 auth()->user()->can('permissions.index') ||
                                 auth()->user()->can('users.index'))
+                            <li class="header">LOGIN & AUTHANTICATION</li>
                             <li
                                 class="treeview {{ setActive('backend/roles/index') . setActive('backend/permissions/index') . setActive('backend/users/index') }} {{ setOpen('backend/roles/index') . setOpen('backend/permissions/index') . setOpen('backend/users/index') }}">
                                 <a href="#">
                                     <i class="icon-Chat-locked"><span class="path1"></span><span
                                             class="path2"></span></i>
-                                    <span>Authentication</span>
+                                    <span>User Authentication</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-right pull-right"></i>
                                     </span>

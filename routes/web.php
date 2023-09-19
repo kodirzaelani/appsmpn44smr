@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Template\Frontend\Nusantara\Main\Homeindex;
+use App\Http\Livewire\Template\Frontend\Nusantara\Main\Homeindex;
 
 Route::get('/', Homeindex::class)->name('root');
 
@@ -10,13 +10,14 @@ Auth::routes();
 Route::middleware(['auth', 'web'])->group(function () {
 
     // Dashboard
-    Route::get('backend/admin/home', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('backend.dashboard');
+    Route::get('backend/admin/home', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('backend.admin');
+
     // Setting
-    Route::get('backend/settings', [App\Http\Controllers\Backend\BackendController::class, 'setting'])->name('backend.settings');
-    Route::post('backend/settings/create', [App\Http\Controllers\Backend\BackendController::class, 'createsetting'])->name('backend.settings.create');
-    Route::post('backend/settings/store', [App\Http\Controllers\Backend\BackendController::class, 'storesetting'])->name('backend.settings.store');
-    Route::get('backend/settings/{option}/edit', [App\Http\Controllers\Backend\BackendController::class, 'editsetting'])->name('backend.settings.edit');
-    Route::put('backend/settings/{option}/update', [App\Http\Controllers\Backend\BackendController::class, 'updatesetting'])->name('backend.settings.update');
+    Route::get('backend/settings', [App\Http\Controllers\Backend\OptionController::class, 'setting'])->name('backend.settings');
+    Route::post('backend/settings/create', [App\Http\Controllers\Backend\OptionController::class, 'createsetting'])->name('backend.settings.create');
+    Route::post('backend/settings/store', [App\Http\Controllers\Backend\OptionController::class, 'storesetting'])->name('backend.settings.store');
+    Route::get('backend/settings/{option}/edit', [App\Http\Controllers\Backend\OptionController::class, 'editsetting'])->name('backend.settings.edit');
+    Route::put('backend/settings/{option}/update', [App\Http\Controllers\Backend\OptionController::class, 'updatesetting'])->name('backend.settings.update');
 
     // Permission
     Route::get('backend/permissions/index', [App\Http\Controllers\Backend\PermissionController::class, 'index'])->name('backend.permissions.index');

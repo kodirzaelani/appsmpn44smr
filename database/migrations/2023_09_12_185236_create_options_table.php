@@ -58,6 +58,8 @@ return new class extends Migration
             $table->boolean('status_home')->default(false);
             $table->tinyInteger('fresh_site')->nullable();
             $table->boolean('status_site_update')->default(true);
+            $table->boolean('statushero')->default(true);
+            $table->string('imagehero')->nullable();
             $table->timestamps();
             $table->primary('id');
 

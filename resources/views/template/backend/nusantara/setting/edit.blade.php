@@ -150,8 +150,8 @@
                                                 <div class="form-group">
                                                     <label class="form-label">Description <span
                                                             class="text-danger">*</span></label>
-                                                    <textarea id="editor1" rows="10" cols="80"
-                                                        class="form-control @error('description') is-invalid @enderror" name="description">{{ old('description') ?? $option->description }}</textarea>
+                                                    <textarea id="editor1" rows="5" class="form-control @error('description') is-invalid @enderror"
+                                                        name="description">{{ old('description') ?? $option->description }}</textarea>
                                                     <div class="form-control-feedback"><small><code>Deskripsi Singkat
                                                             </code></small></div>
                                                     @error('description')
