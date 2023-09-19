@@ -23,7 +23,7 @@
                                     <a href="#">
                                         <i class="icon-Settings-2"><span class="path1"></span><span
                                                 class="path2"></span></i>
-                                        <span>Settings</span>
+                                        <span>Configuration</span>
                                         <span class="pull-right-container">
                                             <i class="fa fa-angle-right pull-right"></i>
                                         </span>
@@ -33,7 +33,7 @@
                                             <li class="{{ setActive('backend/settings') }}">
                                                 <a href="{{ route('backend.settings') }}">
                                                     <i class="icon-Commit"><span class="path1"></span><span
-                                                            class="path2"></span></i>General
+                                                            class="path2"></span></i>System Info
                                                 </a>
                                             </li>
                                         @endcan
