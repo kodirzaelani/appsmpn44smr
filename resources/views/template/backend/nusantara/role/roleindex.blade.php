@@ -1,5 +1,5 @@
 @extends('template.backend.nusantara.layouts.appb')
-@section('title', 'List of Role')
+@section('title', $title)
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">

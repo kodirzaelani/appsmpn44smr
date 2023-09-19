@@ -22,5 +22,5 @@
         </div>
     </div>
     <!-- Main content -->
-    @livewire('template.backend.nusantara.user.userindex')
+    @livewire('template.backend.nusantara.user.userall')
 @endsection

@@ -49,14 +49,63 @@
     <script src="{{ asset('') }}assets/backend/js/pages/chat-popup.js"></script>
     <script src="{{ asset('') }}assets/icons/feather-icons/feather.min.js"></script>
 
-    <script src="{{ asset('') }}assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+    {{-- <script src="{{ asset('') }}assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script> --}}
     <script src="{{ asset('') }}assets/vendor_components/moment/min/moment.min.js"></script>
     <script src="{{ asset('') }}assets/vendor_components/fullcalendar/fullcalendar.js"></script>
+    <script src="{{ asset('') }}assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+    {{-- <script src="{{ asset('') }}assets/vendor_components/sweetalert/jquery.sweet-alert.custom.js"></script> --}}
 
     <!-- EduAdmin App -->
     <script src="{{ asset('') }}assets/backend/js/template.js"></script>
-    <script src="{{ asset('') }}assets/backend/js/pages/dashboard3.js"></script>
+    {{-- <script src="{{ asset('') }}assets/backend/js/pages/dashboard3.js"></script> --}}
     <script src="{{ asset('') }}assets/backend/js/pages/calendar.js"></script>
+    @stack('scripts')
+    <script>
+        //  Open modal delete
+        window.addEventListener('openDeleteModal', event => {
+            $("#modalFormDelete").modal('show');
+        });
+
+        //  Close modal delete
+        window.addEventListener('closeDeleteModal', event => {
+            $("#modalFormDelete").modal('hide');
+        });
+
+        //  Open modal restore
+        window.addEventListener('openRestoreModal', event => {
+            $("#modalFormRestore").modal('show');
+        });
+
+        //  Close modal restore
+        window.addEventListener('closeRestoreModal', event => {
+            $("#modalFormRestore").modal('hide');
+        });
+
+        //  Close modal deleteall
+        window.addEventListener('closeDeleteModalAll', event => {
+            $("#modalFormDeleteAll").modal('hide');
+        });
+
+        //Save Draft
+        $('#draft-btn').click(function(e) {
+            e.preventDefault();
+            $('#status').val(0);
+            $('#post-form').submit();
+        });
+        //Save Publish
+        $('#publish-btn').click(function(e) {
+            e.preventDefault();
+            $('#status').val(1);
+            $('#post-form').submit();
+        });
+
+        //flash message
+        @if (session()->has('success'))
+            swal("SUCCESS!", "{{ session('success') }}", "success");
+        @elseif (session()->has('error'))
+            swal("SUCCESS!", "{{ session('error') }}", "error");
+        @endif
+    </script>
     @livewireScripts
 
 </body>
