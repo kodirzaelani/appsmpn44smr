@@ -10,7 +10,8 @@
                     <div class="box-body">
                         <div class="row mb-2">
                             <div class="col-xl-2 col-lg-2 col-md-2 col-12 mb-2">
-                                <select wire:model="paginate" name="" id="" class="w-auto form-control-sm custom-select">
+                                <select wire:model="paginate" name="" id=""
+                                    class="w-auto form-control-sm custom-select">
                                     <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="25">25</option>
@@ -20,30 +21,38 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-12 mb-2">
                                 @if ($checked)
-                                <div class="btn-group mb-5">
-                                    <button type="button" class="waves-effect waves-light btn btn-info">With Checked ({{ count($checked) }})</button>
-                                    <button type="button" class="waves-effect waves-light btn btn-info dropdown-toggle" data-bs-toggle="dropdown">
-                                        <span class="caret"></span>
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modalFormDeleteAll">
-                                            Delete Selected
-                                        </a>
-                                        <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modalFormExportExcel">
-                                            Export Excel
-                                        </a>
-                                        <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modalFormExportPDF">
-                                            Export PDF
-                                        </a>
+                                    <div class="btn-group mb-5">
+                                        <button type="button" class="waves-effect waves-light btn btn-info">With
+                                            Checked ({{ count($checked) }})</button>
+                                        <button type="button"
+                                            class="waves-effect waves-light btn btn-info dropdown-toggle"
+                                            data-bs-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a href="#" class="dropdown-item" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modalFormDeleteAll">
+                                                Delete Selected
+                                            </a>
+                                            <a href="#" class="dropdown-item" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modalFormExportExcel">
+                                                Export Excel
+                                            </a>
+                                            <a href="#" class="dropdown-item" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modalFormExportPDF">
+                                                Export PDF
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
                                 @endif
                             </div>
                             <div class="col-md-5 col-lg-5 col-12 mb-2 text-right ">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
-                                        <input type="search" wire:model.debounce.500ms="search" class="form-control" wire:keydown.escape="resetSearch" wire:keydown.tab="resetSearch" class="form-control float-right" placeholder="Search by ...">
+                                        <input type="search" wire:model.debounce.500ms="search" class="form-control"
+                                            wire:keydown.escape="resetSearch" wire:keydown.tab="resetSearch"
+                                            class="form-control float-right" placeholder="Search by ...">
                                         <span class="input-group-text"><i class="ti-search"></i></span>
                                     </div>
                                 </div>
@@ -53,82 +62,95 @@
                         <div class="row mb-2"> <!-- row count selected item -->
                             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                                 @if ($selectPage)
-                                <div class="col-md-10 mb-2">
-                                    @if ($selectAll)
-                                    <div>
-                                        You have selected all <strong>{{ $datajenjangpendidikan->total() }}</strong> items.
-                                    </div>
-                                    @else
-                                    <div>
-                                        You have selected <strong>{{ count($checked) }}</strong> items, Do you want to Select All
-                                        <strong>{{ $datajenjangpendidikan->total() }}</strong>?
-                                        <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
-                                    </div>
-                                    @endif
+                                    <div class="col-md-10 mb-2">
+                                        @if ($selectAll)
+                                            <div>
+                                                You have selected all
+                                                <strong>{{ $datajenjangpendidikan->total() }}</strong> items.
+                                            </div>
+                                        @else
+                                            <div>
+                                                You have selected <strong>{{ count($checked) }}</strong> items, Do you
+                                                want to Select All
+                                                <strong>{{ $datajenjangpendidikan->total() }}</strong>?
+                                                <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
+                                            </div>
+                                        @endif
 
-                                </div>
+                                    </div>
                                 @endif
                             </div> <!-- end row count selected item -->
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-md-8 col-lg-8 col-12">
                                 @if ($datajenjangpendidikan->count())
-                                <div class="table-responsive">
-                                    <table class="table table-hover mb-0">
-                                        <tbody>
-                                            <tr>
-                                                <th width="4%" scope="col">#</th>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="4%" scope="col">#</th>
 
-                                                @foreach ($headersTable as $key => $value)
-                                                <th scope="col" wire:click.prevent="sortBy('{{ $key }}')" style="cursor: pointer">
-                                                    {{ $value }}
-                                                    @if ($sortColumn == $key)
-                                                    <span>{!! $sortDirection == 'asc' ? '&#8659':'&#8657' !!}</span>
-                                                    @endif
-                                                </th>
+                                                    @foreach ($headersTable as $key => $value)
+                                                        <th scope="col"
+                                                            wire:click.prevent="sortBy('{{ $key }}')"
+                                                            style="cursor: pointer">
+                                                            {{ $value }}
+                                                            @if ($sortColumn == $key)
+                                                                <span>{!! $sortDirection == 'asc' ? '&#8659' : '&#8657' !!}</span>
+                                                            @endif
+                                                        </th>
+                                                    @endforeach
+                                                    <th scope="col" width="20%">Action</th>
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                @foreach ($datajenjangpendidikan as $no => $item)
+                                                    <tr>
+                                                        <th class="text-right" scope="row">
+                                                            {{ $no + $datajenjangpendidikan->firstItem() }}</th>
+
+                                                        <td>
+                                                            {{ !empty($item->sort) ? $item->sort : '' }}<br />
+                                                        </td>
+                                                        <td>
+                                                            {{ !empty($item->title) ? $item->title : '' }}<br />
+                                                        </td>
+
+                                                        <td class="text-center align-midle">
+                                                            <button
+                                                                wire:click="selectItem('{{ $item->id }}', 'edit')"
+                                                                class="btn btn-sm btn-warning" title="Edit"><i
+                                                                    class="fa fa-edit    "></i></button>
+                                                            <button
+                                                                wire:click="selectItem('{{ $item->id }}', 'delete')"
+                                                                class="btn btn-sm btn-danger" title="Delete"><i
+                                                                    class="fa fa-trash    "></i></button>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
-                                                <th scope="col" width="20%">Action</th>
-                                            </tr>
-                                        </tbody>
-                                        <tbody>
-                                            @foreach ($datajenjangpendidikan as $no =>  $item)
-                                            <tr >
-                                                <th class="text-right" scope="row">{{ $no + $datajenjangpendidikan->firstItem() }}</th>
 
-                                                <td>
-                                                    {{ !empty($item->sortid) ? $item->sortid:'' }}<br/>
-                                                </td>
-                                                <td>
-                                                    {{ !empty($item->title) ? $item->title:'' }}<br/>
-                                                </td>
-
-                                                <td class="text-center align-midle">
-                                                    <button wire:click="selectItem('{{ $item->id }}', 'edit')" class="btn btn-sm btn-warning" title="Edit"><i class="fa fa-edit    "></i></button>
-                                                    <button wire:click="selectItem('{{ $item->id }}', 'delete')" class="btn btn-sm btn-danger" title="Delete"><i class="fa fa-trash    "></i></button>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="mt-3 row">
-                                    <div class="col-xl-12 col-md-12 col-lg-12 col-12 ">
-                                        {{ $datajenjangpendidikan->links() }}
-                                        Page : {{ $datajenjangpendidikan->currentPage() }} | Show {{ $datajenjangpendidikan->count() }} data of {{ $datajenjangpendidikan->total() }}
+                                            </tbody>
+                                        </table>
                                     </div>
+                                    <div class="mt-3 row">
+                                        <div class="col-xl-12 col-md-12 col-lg-12 col-12 ">
+                                            {{ $datajenjangpendidikan->links() }}
+                                            Page : {{ $datajenjangpendidikan->currentPage() }} | Show
+                                            {{ $datajenjangpendidikan->count() }} data of
+                                            {{ $datajenjangpendidikan->total() }}
+                                        </div>
 
-                                </div>
+                                    </div>
                                 @else
-                                <hr>
-                                <h2 style="color: red" class="text-center">@yield('title') not available</h2>
+                                    <hr>
+                                    <h2 style="color: red" class="text-center">@yield('title') not available</h2>
                                 @endif
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                                 @if ($statusUpdate == true)
-                                @livewire('template.backend.nusantara.jenjangpendidikan.jenjangpendidikanedit')
+                                    @livewire('template.backend.nusantara.jenjangpendidikan.jenjangpendidikanedit')
                                 @else
-                                @livewire('template.backend.nusantara.jenjangpendidikan.jenjangpendidikancreate')
+                                    @livewire('template.backend.nusantara.jenjangpendidikan.jenjangpendidikancreate')
                                 @endif
                             </div>
                         </div>
@@ -136,7 +158,7 @@
                 </div>
             </div>
         </div>
-        {{-- Modal Delete--}}
+        {{-- Modal Delete --}}
         <div class="modal center-modal fade" id="modalFormDelete" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -146,7 +168,9 @@
                     </div>
                     <div class="modal-body">
                         {{-- Selected Item {{ $selectedItem }} --}}
-                        <p><h3>Do you wish to continue?</h3></p>
+                        <p>
+                        <h3>Do you wish to continue?</h3>
+                        </p>
                     </div>
                     <div class="modal-footer modal-footer-uniform">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -156,8 +180,8 @@
             </div>
         </div>
 
-        {{-- Modal Delete--}}
-        {{-- Modal Delete All--}}
+        {{-- Modal Delete --}}
+        {{-- Modal Delete All --}}
         <div class="modal center-modal fade" id="modalFormDeleteAll" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -166,7 +190,9 @@
                         {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                     </div>
                     <div class="modal-body">
-                        <p><h3>Are you sure you want to delete these Selected Records?</h3></p>
+                        <p>
+                        <h3>Are you sure you want to delete these Selected Records?</h3>
+                        </p>
                     </div>
                     <div class="modal-footer modal-footer-uniform">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -175,8 +201,8 @@
                 </div>
             </div>
         </div>
-        {{-- Modal Delete All--}}
-        {{-- Modal Export Excel--}}
+        {{-- Modal Delete All --}}
+        {{-- Modal Export Excel --}}
         <div class="modal center-modal fade" id="modalFormExportExcel" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -185,7 +211,9 @@
                         {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                     </div>
                     <div class="modal-body">
-                        <p><h3>Are you sure you want to Export Spreadsheet these Selected Records?</h3></p>
+                        <p>
+                        <h3>Are you sure you want to Export Spreadsheet these Selected Records?</h3>
+                        </p>
                     </div>
                     <div class="modal-footer modal-footer-uniform">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -194,8 +222,8 @@
                 </div>
             </div>
         </div>
-        {{-- Modal Export Excel--}}
-        {{-- Modal Export PDF--}}
+        {{-- Modal Export Excel --}}
+        {{-- Modal Export PDF --}}
         <div class="modal center-modal fade" id="modalFormExportPDF" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -204,7 +232,9 @@
                         {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                     </div>
                     <div class="modal-body">
-                        <p><h3>Are you sure you want to Export PDF these Selected Records?</h3></p>
+                        <p>
+                        <h3>Are you sure you want to Export PDF these Selected Records?</h3>
+                        </p>
                     </div>
                     <div class="modal-footer modal-footer-uniform">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -213,19 +243,18 @@
                 </div>
             </div>
         </div>
-        {{-- Modal Export PDF--}}
+        {{-- Modal Export PDF --}}
     </section>
     @push('scripts')
-    <script>
-        // Sweet Alert
-        window.addEventListener('swal:modal', event => {
-            swal({
-                title: event.detail.title,
-                text: event.detail.text,
-                type: event.detail.icon,
+        <script>
+            // Sweet Alert
+            window.addEventListener('swal:modal', event => {
+                swal({
+                    title: event.detail.title,
+                    text: event.detail.text,
+                    type: event.detail.icon,
+                });
             });
-        });
-
-    </script>
+        </script>
     @endpush
 </div>

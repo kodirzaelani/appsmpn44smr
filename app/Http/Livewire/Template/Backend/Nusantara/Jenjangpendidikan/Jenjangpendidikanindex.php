@@ -18,7 +18,7 @@ class Jenjangpendidikanindex extends Component
     public $selectPage    = false;
     public $selectAll     = false;
     public $sortDirection = 'asc';
-    public $sortColumn    = 'sortid';
+    public $sortColumn    = 'sort';
     public $statusUpdate  = false;
     public $headersTable;
     public $action;
@@ -42,7 +42,7 @@ class Jenjangpendidikanindex extends Component
     private function headerConfig()
     {
         return [
-            'sortid' => 'ID',
+            'sort' => 'ID',
             'title'        => 'Name',
         ];
     }
@@ -52,14 +52,13 @@ class Jenjangpendidikanindex extends Component
         $this->sortColumn = $column;
 
         $this->sortDirection = $this->reverseSort();
-
     }
 
     public function reverseSort()
     {
         return $this->sortDirection === 'asc'
-        ? 'desc'
-        : 'asc';
+            ? 'desc'
+            : 'asc';
     }
 
     public function mount()
@@ -67,7 +66,6 @@ class Jenjangpendidikanindex extends Component
         $this->fill(request()->only('search', 'currentPage'));
         $this->resetSearch();
         $this->headersTable = $this->headerConfig();
-
     }
 
     public function resetSearch()
@@ -83,7 +81,7 @@ class Jenjangpendidikanindex extends Component
     public function getJenjangpendidikanQueryProperty()
     {
         return Jenjangpendidikan::orderBy($this->sortColumn, $this->sortDirection)
-        ->search(trim($this->search)); //search menggunakan scopeSearch di model
+            ->search(trim($this->search)); //search menggunakan scopeSearch di model
     }
 
     public function getJenjangpendidikanProperty()
@@ -121,13 +119,13 @@ class Jenjangpendidikanindex extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Jenjangpendidikan ' . $jenjangpendidikan['title'] . ' was Stored',
-            'toast'=>true, // Jika mau menggunakan toas
-            'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Jenjangpendidikan ' . $jenjangpendidikan['title'] . ' was Stored',
+            'toast' => true, // Jika mau menggunakan toas
+            'position' => 'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->resetErrorBag();
         $this->resetValidation();
@@ -138,13 +136,13 @@ class Jenjangpendidikanindex extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Jenjangpendidikan ' . $jenjangpendidikan['title'] . ' was Updated',
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Jenjangpendidikan ' . $jenjangpendidikan['title'] . ' was Updated',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->statusUpdate = false;
     }
@@ -176,13 +174,13 @@ class Jenjangpendidikanindex extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Deleted Success!',
-            'timer'=>4000,
-            'icon'=>'success',
-            'text'=>'Selected Records were deleted Successfully',
+            'timer' => 4000,
+            'icon' => 'success',
+            'text' => 'Selected Records were deleted Successfully',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->emit('refreshParent');
         $this->dispatchBrowserEvent('closeDeleteModalAll');
@@ -191,24 +189,24 @@ class Jenjangpendidikanindex extends Component
     // Delete Single Record
     public function delete()
     {
-            Jenjangpendidikan::destroy($this->selectedItem);
+        Jenjangpendidikan::destroy($this->selectedItem);
 
-            // Sweet alert
-            $this->dispatchBrowserEvent('swal:modal', [
-                'title' => 'Deleted Success!',
-                'timer' => 4000,
-                'icon'  => 'success',
-                'text'  => 'Jenjangpendidikan was deleted',
-                // 'toast'=>true, // Jika mau menggunakan toas
-                // 'position'=>'top-right', // Jika mau menggunakan toas
-                'showConfirmButton' => true,
-                'showCancelButton'  => false,
-            ]);
+        // Sweet alert
+        $this->dispatchBrowserEvent('swal:modal', [
+            'title' => 'Deleted Success!',
+            'timer' => 4000,
+            'icon'  => 'success',
+            'text'  => 'Jenjangpendidikan was deleted',
+            // 'toast'=>true, // Jika mau menggunakan toas
+            // 'position'=>'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton'  => false,
+        ]);
 
 
-            $this->emit('refreshParent');
-            // This will hide the modal in the frontend
-            $this->dispatchBrowserEvent('closeDeleteModal');
+        $this->emit('refreshParent');
+        // This will hide the modal in the frontend
+        $this->dispatchBrowserEvent('closeDeleteModal');
     }
 
 

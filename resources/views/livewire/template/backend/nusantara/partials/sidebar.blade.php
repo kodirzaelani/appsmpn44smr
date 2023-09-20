@@ -15,9 +15,13 @@
                             </a>
                         </li>
 
-                        @if (auth()->user()->can('settings.index'))
+                        @if (auth()->user()->can('settings.index') ||
+                                auth()->user()->can('religi.index') ||
+                                auth()->user()->can('jenjangpendidikan.index'))
                             <li class="header">SYSTEM CONFIGURATION</li>
-                            @if (auth()->user()->can('settings.index'))
+                            @if (auth()->user()->can('settings.index') ||
+                                    auth()->user()->can('religi.index') ||
+                                    auth()->user()->can('jenjangpendidikan.index'))
                                 <li
                                     class="treeview {{ setActive('backend/allwidget') . setActive('backend/jenjangpendidikan') . setActive('backend/menu') . setActive('backend/settings') }} {{ setOpen('backend/allwidget') . setOpen('backend/jenjangpendidikan') . setOpen('backend/menu') . setOpen('backend/settings') }}">
                                     <a href="#">
@@ -37,6 +41,24 @@
                                                 </a>
                                             </li>
                                         @endcan
+                                        @if (auth()->user()->can('religi.index'))
+                                            <li
+                                                class="{{ setActive('backend/religi') }} {{ setOpen('backend/religi') }}"">
+                                                <a href="{{ route('backend.religi.index') }}">
+                                                    <i class="icon-Commit"><span class="path1"></span><span
+                                                            class="path2"></span></i>Religi
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (auth()->user()->can('jenjangpendidikan.index'))
+                                            <li
+                                                class="{{ setActive('backend/jenjangpendidikan') }} {{ setOpen('backend/jenjangpendidikan') }}">
+                                                <a href="{{ route('backend.jenjangpendidikan.index') }}">
+                                                    <i class="icon-Commit"><span class="path1"></span><span
+                                                            class="path2"></span></i>Jenjang Pendidikan
+                                                </a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </li>
                             @endif

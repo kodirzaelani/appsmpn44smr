@@ -8,10 +8,10 @@ use Spatie\Permission\Models\Permission;
 class PermissionSeeder extends Seeder
 {
     /**
-    * Run the database seeds.
-    *
-    * @return void
-    */
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
 
@@ -172,5 +172,16 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'links.edit']);
         Permission::create(['name' => 'links.delete']);
 
+        //Religi for links
+        Permission::create(['name' => 'religi.index']);
+        Permission::create(['name' => 'religi.create']);
+        Permission::create(['name' => 'religi.edit']);
+        Permission::create(['name' => 'religi.delete']);
+
+        //Jenjang Pendidikan for links
+        Permission::create(['name' => 'jenjangpendidikan.index']);
+        Permission::create(['name' => 'jenjangpendidikan.create']);
+        Permission::create(['name' => 'jenjangpendidikan.edit']);
+        Permission::create(['name' => 'jenjangpendidikan.delete']);
     }
 }

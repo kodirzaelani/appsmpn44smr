@@ -37,6 +37,12 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::put('backend/users/{user}/update', [App\Http\Controllers\Backend\UserController::class, 'update'])->name('backend.users.update');
     Route::get('backend/admin/profile', [App\Http\Controllers\Backend\BackendController::class, 'userprofile'])->name('backend.userprofile');
 
+    // Agama
+    Route::get('backend/religi', [App\Http\Controllers\Backend\AgamaController::class, 'index'])->name('backend.religi.index');
+
+    // Jenjang Pendidikan
+    Route::get('backend/jenjangpendidikan', [App\Http\Controllers\Backend\JenjangpendidikanController::class, 'index'])->name('backend.jenjangpendidikan.index');
+
     Route::get('backend/admin/manage-menus/{id?}', [App\Http\Controllers\Backend\MenufrontendController::class, 'index'])->name('backend.dashboard');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
