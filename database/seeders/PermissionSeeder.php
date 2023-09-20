@@ -183,5 +183,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'jenjangpendidikan.create']);
         Permission::create(['name' => 'jenjangpendidikan.edit']);
         Permission::create(['name' => 'jenjangpendidikan.delete']);
+
+        //greetings for links
+        Permission::create(['name' => 'greetings.index']);
+        Permission::create(['name' => 'greetings.create']);
+        Permission::create(['name' => 'greetings.edit']);
+        Permission::create(['name' => 'greetings.delete']);
     }
 }

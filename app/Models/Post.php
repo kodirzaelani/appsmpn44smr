@@ -34,11 +34,6 @@ class Post extends Model
         return $this->belongsTo(Postcategory::class, 'postcategory_id');
     }
 
-    public function postsubcategory()
-    {
-        return $this->belongsTo(Postsubcategory::class, 'postsubcategory_id');
-    }
-
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
@@ -75,9 +70,6 @@ class Post extends Model
             $q->orWhereHas('postcategory', function ($qr) use ($term) {
                 $qr->where('title', 'LIKE', $term);
             });
-            $q->orWhereHas('postsubcategory', function ($qr) use ($term) {
-                $qr->where('title', 'LIKE', $term);
-            });
             $q->orWhereHas('tags', function ($qr) use ($term) {
                 $qr->where('title', 'LIKE', $term);
             });
@@ -111,9 +103,6 @@ class Post extends Model
                     $qr->where('name', 'LIKE', "%{$term}%");
                 });
                 $q->orWhereHas('postcategory', function ($qr) use ($term) {
-                    $qr->where('title', 'LIKE', "%{$term}%");
-                });
-                $q->orWhereHas('postsubcategory', function ($qr) use ($term) {
                     $qr->where('title', 'LIKE', "%{$term}%");
                 });
                 $q->orWhereHas('tags', function ($qr) use ($term) {
