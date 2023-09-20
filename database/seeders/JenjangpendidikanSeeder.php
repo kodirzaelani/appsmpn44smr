@@ -20,11 +20,11 @@ class JenjangpendidikanSeeder extends Seeder
         $data = json_decode($json);
         foreach ($data as $obj) {
             DB::table('jenjangpendidikans')->insert([
-                'id' => $obj->jenjang_pendidikan_id,
-                'title' => $obj->nama,
-                'slug' => Str::slug($obj->nama),
-                'created_at'             => $obj->create_date,
-                'updated_at'             => $obj->last_update,
+                'id'         => $obj->jenjang_pendidikan_id,
+                'title'      => $obj->nama,
+                'slug'       => Str::slug($obj->nama),
+                'created_at' => $obj->create_date,
+                'updated_at' => $obj->last_update,
             ]);
         }
     }
