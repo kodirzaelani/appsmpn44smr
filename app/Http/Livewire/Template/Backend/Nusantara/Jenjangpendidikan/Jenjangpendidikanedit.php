@@ -21,23 +21,23 @@ class Jenjangpendidikanedit extends Component
     {
         $this->modelId = $modelId;
 
-        $model = Jenjangpendidikan::find($this->modelId);
-        $this->sort        = $model->sort;
+        $model       = Jenjangpendidikan::find($this->modelId);
+        $this->sort  = $model->sort;
         $this->title = $model->title;
     }
 
     public function update()
     {
         $validateData = [
-            'sort' => 'required|min:1',
+            'sort'  => 'required|min:1',
             'title' => 'required|min:2',
         ];
 
         // Default data
         $data = [
-            'sort'        => $this->sort,
+            'sort'  => $this->sort,
             'title' => $this->title,
-            'slug'      => Str::slug(time() . $this->title),
+            'slug'  => Str::slug(time() . $this->title),
         ];
 
         $this->validate($validateData);
@@ -55,7 +55,7 @@ class Jenjangpendidikanedit extends Component
     private function cleanVars()
     {
         // Kosongkan field input
-        $this->sort        = null;
+        $this->sort  = null;
         $this->title = null;
     }
 
