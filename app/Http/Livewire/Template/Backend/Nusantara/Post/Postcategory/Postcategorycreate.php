@@ -14,6 +14,7 @@ class Postcategorycreate extends Component
     public $image;
     public $title;
     public $slug;
+    public $parent_id;
 
 
 
@@ -39,6 +40,7 @@ class Postcategorycreate extends Component
         $data = [
             'title'     => $this->title,
             'slug'      => Str::slug($this->title,),
+            'parent_id' => $this->parent_id,
         ];
 
         if (!empty($this->image)) {
@@ -48,15 +50,14 @@ class Postcategorycreate extends Component
             $this->image->store('images/postcategory/');
 
             // Create a thumbnail of the image using Intervention Image Library
-            $manager = new ImageManager();
-            $imagedata = $manager->make('uploads/images/postcategory/'.$imageHashName)->resize(120, 100); // Jangan lupa sesauikan nama folder dengan public folder image
-            $imagedata->save(public_path('uploads/images/postcategory/images_thumb/'.$imageHashName)); // Jangan lupa buat folder sesuai dengan rencana penyimpanan
+            $manager   = new ImageManager();
+            $imagedata = $manager->make('uploads/images/postcategory/' . $imageHashName)->resize(120, 100);  // Jangan lupa sesauikan nama folder dengan public folder image
+            $imagedata->save(public_path('uploads/images/postcategory/images_thumb/' . $imageHashName));  // Jangan lupa buat folder sesuai dengan rencana penyimpanan
 
             // This is to save the filename of the image in the database
             $data = array_merge($data, [
                 'image' => $imageHashName
             ]);
-
         }
 
         $postcategory = Postcategory::create($data);
@@ -65,7 +66,6 @@ class Postcategorycreate extends Component
         $this->emit('postcategoryStored', $postcategory);
         // This is to reset our public variables
         $this->cleanVars();
-
     }
 
 
@@ -78,6 +78,8 @@ class Postcategorycreate extends Component
 
     public function render()
     {
-        return view('livewire.template.backend.nusantara.post.postcategory.postcategorycreate');
+        return view('livewire.template.backend.nusantara.post.postcategory.postcategorycreate', [
+            'postcatagories' => Postcategory::orderBy('title', 'asc')->get(),
+        ]);
     }
 }

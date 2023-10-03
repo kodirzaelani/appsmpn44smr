@@ -16,6 +16,20 @@
                         <div class="form-control-feedback"><small> <code>{{ $message }}</code> </small></div>
                     @enderror
                 </div>
+                <div class="form-group @error('postcategory_id') has-error @enderror">
+                    <label class="form-label">Parent </label>
+                    <select class="form-control select2" style="width: 100%;" wire:model="parent_id">
+                        <option value="" holder>Select Category</option>
+                        @foreach ($postcatagories as $item)
+                            <option value="{{ $item->id }}"
+                                {{ old('postcategory_id') == $item->id ? 'selected' : '' }}>
+                                {{ $item->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('postcategory_id')
+                        <span class="help-block"><strong>{{ $message }}</strong></span>
+                    @enderror
+                </div>
                 <div class="box">
                     <div class="box-header">
                         <h4 class="box-title">
@@ -31,8 +45,7 @@
                             </p>
                         @else
                             <p>
-                                <img class="rounded" src="{{ asset('') }}uploads/default/no_image.png"
-                                    alt="...">
+                                <img class="rounded" src="{{ asset('') }}assets/images/no_image.png" alt="...">
                             </p>
                         @endif
                     </div>

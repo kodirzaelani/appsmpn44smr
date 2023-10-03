@@ -158,8 +158,7 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a title="Show"
-                                                                href="{{ route('post.tag', $item->slug) }}"
+                                                            <a title="Show" href="#" {{-- href="{{ route('post.tag', $item->slug) }}" --}}
                                                                 target="_blank" style="text-decoration: none; ">
                                                                 {{ !empty($item->title) ? $item->title : '' }}
                                                             </a>

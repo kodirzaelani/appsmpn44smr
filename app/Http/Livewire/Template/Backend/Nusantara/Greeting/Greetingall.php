@@ -24,7 +24,7 @@ class Greetingall extends Component
     public $headersTable;
     public $action;
     public $selectedItem;
-    public $uploadPath= 'uploads/images/greetings';
+    public $uploadPath = 'uploads/images/greetings';
 
     public $title;
     public $slug;
@@ -46,8 +46,6 @@ class Greetingall extends Component
         return [
             'image'      => 'Image',
             'title'      => 'Title',
-            'status'     => 'Status',
-            'created_at' => 'Created',
             'updated_by' => 'UpdatedBy',
         ];
     }
@@ -57,14 +55,13 @@ class Greetingall extends Component
         $this->sortColumn = $column;
 
         $this->sortDirection = $this->reverseSort();
-
     }
 
     public function reverseSort()
     {
         return $this->sortDirection === 'asc'
-        ? 'desc'
-        : 'asc';
+            ? 'desc'
+            : 'asc';
     }
 
     public function mount()
@@ -72,7 +69,6 @@ class Greetingall extends Component
         $this->fill(request()->only('search', 'currentPage'));
         $this->resetSearch();
         $this->headersTable = $this->headerConfig();
-
     }
 
     public function resetSearch()
@@ -89,7 +85,7 @@ class Greetingall extends Component
     {
 
         return Greeting::orderBy($this->sortColumn, $this->sortDirection)
-        ->search(trim($this->search)); //search menggunakan scopeSearch di model
+            ->search(trim($this->search)); //search menggunakan scopeSearch di model
     }
 
     public function getGreetingallProperty()
@@ -127,13 +123,13 @@ class Greetingall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Page Category ' . $greeting['title'] . ' was Stored',
-            'toast'=>true, // Jika mau menggunakan toas
-            'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Page Category ' . $greeting['title'] . ' was Stored',
+            'toast' => true, // Jika mau menggunakan toas
+            'position' => 'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->resetErrorBag();
         $this->resetValidation();
@@ -144,13 +140,13 @@ class Greetingall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Page Category ' . $greeting['title'] . ' was Updated',
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Page Category ' . $greeting['title'] . ' was Updated',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->statusUpdate = false;
     }
@@ -170,7 +166,7 @@ class Greetingall extends Component
         } elseif ($action == 'edit') {
             $this->statusUpdate = true;
             $this->emit('getModelId', $this->selectedItem);
-        } elseif ($action == 'inactive'){
+        } elseif ($action == 'inactive') {
             $this->changeInactive();
         } elseif ($action == 'active') {
             $this->changeActive();
@@ -239,13 +235,13 @@ class Greetingall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Deleted Success!',
-            'timer'=>4000,
-            'icon'=>'success',
-            'text'=>'Selected Records were deleted Successfully',
+            'timer' => 4000,
+            'icon' => 'success',
+            'text' => 'Selected Records were deleted Successfully',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->emit('refreshParent');
         $this->dispatchBrowserEvent('closeDeleteModalAll');
@@ -298,24 +294,21 @@ class Greetingall extends Component
 
     private function removeImage($image)
     {
-        if ( ! empty($image) )
-        {
+        if (!empty($image)) {
             $imagePath     = $this->uploadPath . '/' . $image;
             $ext           = substr(strrchr($image, '.'), 1);
             $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
             $thumbnailPath = $this->uploadPath . '/' . $thumbnail;
 
-            if ( file_exists($imagePath) ) unlink($imagePath);
-            if ( file_exists($thumbnailPath) ) unlink($thumbnailPath);
+            if (file_exists($imagePath)) unlink($imagePath);
+            if (file_exists($thumbnailPath)) unlink($thumbnailPath);
         }
     }
 
     public function render()
     {
-        return view('livewire.template.backend.nusantara.greeting.greetingall',[
+        return view('livewire.template.backend.nusantara.greeting.greetingall', [
             'datagreetingall' => $this->greetingall,
         ]);
     }
-
-
 }

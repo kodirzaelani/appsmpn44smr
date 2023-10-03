@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/vendors_css.css">
 
     <!-- Style-->
+    <link href="{{ asset('') }}assets/vendor_components/swiper/swiper-bundle.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/style.css">
     <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/skin_color.css">
     @stack('styles')
@@ -36,10 +38,8 @@
     <!-- Corenav Master JavaScript -->
     <script src="{{ asset('') }}assets/corenav-master/coreNavigation-1.1.3.js"></script>
     <script src="{{ asset('') }}assets/frontend/js/nav.js"></script>
-    <script src="{{ asset('') }}assets/vendor_components/OwlCarousel2/dist/owl.carousel.js"></script>
-    <script src="{{ asset('') }}assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
-
-
+    <script src="{{ asset('') }}assets/vendor_components/swiper/swiper-bundle.min.js"></script>
+    @stack('scripts')
     <!-- EduAdmin front end -->
     <script src="{{ asset('') }}assets/frontend/js/template.js"></script>
 

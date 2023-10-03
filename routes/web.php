@@ -1,10 +1,35 @@
 <?php
 
+use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Frontend\Nusantara1\Post\Postcategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Main\Homeindex;
+use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagedetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagecategorylist;
+use App\Http\Livewire\Template\Frontend\Nusantara\Greeting\Greetingdetail;
 
 Route::get('/', Homeindex::class)->name('root');
+
+Route::prefix('posts')->group(function () {
+    // Route::get('', Postall::class)->name('post.all');
+    // Route::get('/news', Postnewslist::class)->name('post.news');
+    // Route::get('/article', Postarticlelist::class)->name('post.article');
+    // Route::get('/search', Postsearch::class)->name('post.search');
+    // Route::get('/detail/{slug}', Postdetail::class)->name('post.detail');
+    // Route::get('/category/{slug}', Postcategorylist::class)->name('post.category');
+    // Route::get('/tag/{slug}', Posttaglist::class)->name('post.tag');
+});
+
+Route::prefix('page')->group(function () {
+    Route::get('/detail/{slug}', Pagedetail::class)->name('page.detail');
+    Route::get('/category/{slug}', Pagecategorylist::class)->name('page.category');
+});
+
+Route::prefix('greeting')->group(function () {
+    Route::get('/detail/{slug}', Greetingdetail::class)->name('greeting.detail');
+});
 
 Auth::routes();
 Route::middleware(['auth', 'web'])->group(function () {
@@ -124,4 +149,17 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('backend/admin/manage-menus/{id?}', [App\Http\Controllers\Backend\MenufrontendController::class, 'index'])->name('backend.dashboard');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+View::composer('*', function ($view) {
+    $global_option = Option::first();
+    if (!empty($global_option)) {
+        $view->with('global_option', $global_option);
+    } else {
+        $view->with('global_option', '0');
+    }
 });

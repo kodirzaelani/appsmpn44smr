@@ -12,6 +12,7 @@ class Postcategoryedit extends Component
 {
     use WithFileUploads;
     public $title;
+    public $parent_id;
     public $slug;
     public $image;
     public $prevImage;
@@ -29,6 +30,7 @@ class Postcategoryedit extends Component
         $model = Postcategory::find($this->modelId);
 
         $this->title     = $model->title;
+        $this->parent_id = $model->parent_id;
         $this->prevImage = $model->image;
     }
 
@@ -53,6 +55,7 @@ class Postcategoryedit extends Component
         // Default data
         $data = [
             'title'     => $this->title,
+            'parent_id' => $this->parent_id,
             'slug'      => Str::slug($this->title,),
         ];
 
@@ -63,9 +66,9 @@ class Postcategoryedit extends Component
             $this->image->store('images/postcategory/');
 
             // Create a thumbnail of the image using Intervention Image Library
-            $manager = new ImageManager();
-            $imagedata = $manager->make('uploads/images/postcategory/' . $imageHashName)->resize(120, 100); // Jangan lupa sesauikan nama folder dengan public folder image
-            $imagedata->save(public_path('uploads/images/postcategory/images_thumb/' . $imageHashName)); // Jangan lupa buat folder sesuai dengan rencana penyimpanan
+            $manager   = new ImageManager();
+            $imagedata = $manager->make('uploads/images/postcategory/' . $imageHashName)->resize(120, 100);  // Jangan lupa sesauikan nama folder dengan public folder image
+            $imagedata->save(public_path('uploads/images/postcategory/images_thumb/' . $imageHashName));  // Jangan lupa buat folder sesuai dengan rencana penyimpanan
 
             // This is to save the filename of the image in the database
             $data = array_merge($data, [
@@ -109,6 +112,8 @@ class Postcategoryedit extends Component
     }
     public function render()
     {
-        return view('livewire.template.backend.nusantara.post.postcategory.postcategoryedit');
+        return view('livewire.template.backend.nusantara.post.postcategory.postcategoryedit', [
+            'postcatagories' => Postcategory::orderBy('title', 'asc')->get(),
+        ]);
     }
 }

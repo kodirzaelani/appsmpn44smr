@@ -65,7 +65,7 @@
                                 <div class="demo-radio-button">
                                     <input value="0" name="show_attribute" type="radio" id="radio_33"
                                         class="with-gap radio-col-success @error('show_attribute') is-invalid @enderror"
-                                        {{ old('radio_33') == '0' ? 'checked=' . '"' . 'checked' . '"' : '' }} />
+                                        {{ old('radio_33') == '0' ? 'checked=' . '"' . 'checked' . '"' : '' }} checked />
                                     <label for="radio_33">No Link</label>
                                     <input value="1" name="show_attribute" type="radio" id="radio_30"
                                         class="with-gap radio-col-success @error('show_attribute') is-invalid @enderror"

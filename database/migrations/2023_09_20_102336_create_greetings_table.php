@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('video')->nullable();
             $table->text('caption_video')->nullable();
             $table->boolean('status');
-            $table->boolean('masterstatus');
+            $table->boolean('masterstatus')->nullable();
             $table->integer('view_count')->default(0);
             $table->date('published_at')->nullable();
             $table->uuid('updated_by')->nullable();

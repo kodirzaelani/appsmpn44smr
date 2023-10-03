@@ -1,8 +1,8 @@
 <div>
-    <header class="top-bar text-dark">
+    <header class="top-bar text-dark ">
         @livewire('template.frontend.nusantara.partials.topbar')
 
-        <nav hidden class="nav-dark nav-transparent">
+        <nav hidden class="nav-white nav-transparent">
             <div class="nav-header">
                 <a href="index.html" class="brand">
                     <img src="{{ asset('') }}assets/images/logo-light-text2.png" alt="" />

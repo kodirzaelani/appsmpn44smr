@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('short_title')->nullable();
-            $table->string('excerpt')->nullable();
-            $table->uuid('post_id');
+            $table->text('excerpt')->nullable();
+            $table->uuid('post_id')->nullable();
             $table->string('video')->nullable();
             $table->boolean('show_attribute')->default(false);
             $table->boolean('status')->default(true);

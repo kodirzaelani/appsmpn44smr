@@ -149,9 +149,8 @@
                                                                 alt="...">
                                                         </td>
                                                         <td>
-                                                            <a title="Show"
-                                                                href="{{ route('post.category', $item->slug) }}"
-                                                                target="_blank" style="text-decoration: none; ">
+                                                            <a title="Show" href="#" target="_blank"
+                                                                style="text-decoration: none; ">
                                                                 {{ !empty($item->title) ? $item->title : '' }}
                                                             </a>
                                                             <br>

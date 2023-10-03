@@ -6,6 +6,12 @@
                 <div class="multinav-scroll" style="height: 100%;">
                     <!-- sidebar menu-->
                     <ul class="sidebar-menu" data-widget="tree">
+                        <li>
+                            <a href="{{ route('root') }}" target="_blank" title="View Site">
+                                <i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span>Front End</span>
+                            </a>
+                        </li>
                         <li class="header">Dashboard</li>
                         <li>
                             <a href="{{ route('backend.admin') }}">
@@ -63,7 +69,7 @@
                                                 <li class="{{ setActive('backend/allposts') }}">
                                                     <a href="{{ route('backend.posts.index') }}">
                                                         <i class="icon-Commit"><span class="path1"></span><span
-                                                                class="path2"></span></i>Post
+                                                                class="path2"></span></i>List Post
                                                     </a>
                                                 </li>
                                             @endcan
@@ -79,7 +85,7 @@
                                         class="treeview {{ setActive('backend/allgreetings') . setActive('backend/pagecategories') }} {{ setOpen('backend/allgreetings') . setOpen('backend/pagecategories') }}">
                                         <a href="#">
                                             <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                            <span>Pages</span>
+                                            <span>Page</span>
                                             <span class="pull-right-container">
                                                 <i class="fa fa-angle-right pull-right"></i>
                                             </span>
@@ -93,36 +99,14 @@
                                                     </a>
                                                 </li>
                                             @endcan
-                                            <li
-                                                class="treeview {{ setActive('backend/allgreetings') . setActive('backend/greetings/create') }} {{ setOpen('backend/allgreetings') . setOpen('backend/greetings/create') }}">
-                                                <a href="#">
-                                                    <i class="icon-Commit"><span class="path1"></span><span
-                                                            class="path2"></span></i>Pages
-                                                    <span class="pull-right-container">
-                                                        <i class="fa fa-angle-right pull-right"></i>
-                                                    </span>
-                                                </a>
-                                                <ul class="treeview-menu">
-                                                    @can('pages.create')
-                                                        <li class="{{ setActive('backend/pages/create') }}">
-                                                            <a href="{{ route('backend.pages.create') }}"><i
-                                                                    class="icon-Commit"><span class="path1"></span><span
-                                                                        class="path2"></span></i>Add New
-                                                            </a>
-                                                        </li>
-                                                    @endcan
-                                                    @can('pages.index')
-                                                        <li class="{{ setActive('backend/allpages') }}">
-                                                            <a href="{{ route('backend.pages.index') }}">
-                                                                <i class="icon-Commit">
-                                                                    <span class="path1"></span><span class="path2"></span>
-                                                                </i>All Pages
-                                                            </a>
-                                                        </li>
-                                                    @endcan
-                                                </ul>
-                                            </li>
-
+                                            @can('pages.index')
+                                                <li class="{{ setActive('backend/allpages') }}">
+                                                    <a href="{{ route('backend.pages.index') }}">
+                                                        <i class="icon-Commit"><span class="path1"></span><span
+                                                                class="path2"></span></i>List Page
+                                                    </a>
+                                                </li>
+                                            @endcan
                                         </ul>
                                     </li>
                                 @endif
@@ -351,8 +335,8 @@
             </div>
         </section>
         <div class="sidebar-footer">
-            <a href="javascript:void(0)" class="link" data-bs-toggle="tooltip" title="Settings"><span
-                    class="icon-Settings-2"></span></a>
+            <a href="{{ route('backend.settings') }}" class="link" data-bs-toggle="tooltip"
+                title="System Info"><span class="icon-Settings-2"></span></a>
             <a href="#" class="link" data-bs-toggle="tooltip" title="Chat">
                 <i class="icon-Chat"><span class="path1"></span><span class="path2"></span></i></a>
             <a class="link" href="{{ route('logout') }}" data-bs-toggle="tooltip" title="Logout"

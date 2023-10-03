@@ -12,8 +12,6 @@
                                         class="fa fa-home"><span class="path1"></span><span
                                             class="path2"></span></i></a></li>
                             <li class="breadcrumb-item" aria-current="page">Page</li>
-                            {{-- <li class="breadcrumb-item active" aria-current="page"></li> --}}
-                        </ol>
                     </nav>
                 </div>
             </div>
@@ -22,15 +20,15 @@
     </div>
     <!-- Main content -->
     <section class="content">
-
         <div class="row">
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="box box-bordered border-primary">
                     <div class="box-header with-border">
                         <h4 class="box-title">@yield('title')</h4>
                         <div class="box-controls pull-right">
-                            <a class="btn btn-sm btn-primary " href="{{ route('backend.pages.create') }}"><i
-                                    class="bi bi-plus-circle-fill"></i> Add</a>
+                            <a class="btn btn-sm btn-primary " href="{{ route('backend.pages.create') }}">
+                                <i class="bi bi-plus-circle-fill"></i> Add
+                            </a>
                         </div>
                     </div>
                     <div class="box-body">
@@ -45,34 +43,6 @@
                                     <option value="100">100</option>
                                 </select>
                             </div>
-                            <div class="col-lg-5 col-md-5 col-12 mb-2">
-                                @if ($checked)
-                                    <div class="btn-group mb-5">
-                                        <button type="button" class="waves-effect waves-light btn btn-info">With
-                                            Checked ({{ count($checked) }})</button>
-                                        <button type="button"
-                                            class="waves-effect waves-light btn btn-info dropdown-toggle"
-                                            data-bs-toggle="dropdown">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormDeleteAll">
-                                                Delete Selected
-                                            </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportExcel">
-                                                Export Excel
-                                            </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportPDF">
-                                                Export PDF
-                                            </a>
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
                             <div class="col-md-5 col-lg-5 col-12 mb-2 text-right ">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
@@ -83,30 +53,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <!-- row count selected item -->
-                            <div class="col-xl-12 col-md-12 col-lg-12 col-12">
-                                @if ($selectPage)
-                                    <div class="col-md-10 mb-2">
-                                        @if ($selectAll)
-                                            <div>
-                                                You have selected all <strong>{{ $datapageall->total() }}</strong>
-                                                items.
-                                            </div>
-                                        @else
-                                            <div>
-                                                You have selected <strong>{{ count($checked) }}</strong> items, Do you
-                                                want to Select All
-                                                <strong>{{ $datapageall->total() }}</strong>?
-                                                <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
-                                            </div>
-                                        @endif
-
-                                    </div>
-                                @endif
-                            </div> <!-- end row count selected item -->
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
@@ -140,19 +86,11 @@
                                                             <img class="w-80 rounded"
                                                                 src="{{ $item->imageThumbUrl ? $item->imageThumbUrl : '/assets/images/no_image.png' }}"
                                                                 alt="..."><br>
-                                                            <small>
-                                                                @if ($item->masterstatus == 0)
-                                                                    Publish
-                                                                @else
-                                                                    unPublish
-                                                                @endif
-                                                            </small>
                                                         </td>
                                                         <td>
                                                             <a title="Show"
                                                                 href="{{ route('page.detail', $item->slug) }}"
-                                                                target="_blank"
-                                                                style="text-decoration: none; color:#212529;">
+                                                                target="_blank" style="text-decoration: none">
                                                                 {{ !empty($item->title) ? $item->title : '' }}
                                                             </a>
                                                         </td>
@@ -201,8 +139,7 @@
                                                             @can('pages.delete')
                                                                 <button
                                                                     wire:click="selectItem('{{ $item->id }}' , 'delete')"
-                                                                    class="btn btn-xs btn-danger mx-1 my-1"
-                                                                    title="Delete"><i
+                                                                    class="btn btn-xs btn-danger " title="Delete"><i
                                                                         class="fa fa-trash    "></i></button>
                                                             @else
                                                                 <button title="Forbidden" class="btn btn-xs btn-danger "
@@ -281,69 +218,6 @@
         </div>
 
         {{-- Modal Delete --}}
-        {{-- Modal Delete All --}}
-        <div class="modal center-modal fade" id="modalFormDeleteAll" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Delete Selected Item</h5>
-                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                        <h3>Are you sure you want to delete these Selected Records?</h3>
-                        </p>
-                    </div>
-                    <div class="modal-footer modal-footer-uniform">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                        <button wire:click="deleteRecords()" class="btn btn-primary float-end">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- Modal Delete All --}}
-        {{-- Modal Export Excel --}}
-        <div class="modal center-modal fade" id="modalFormExportExcel" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Export Selected Item</h5>
-                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                        <h3>Are you sure you want to Export Spreadsheet these Selected Records?</h3>
-                        </p>
-                    </div>
-                    <div class="modal-footer modal-footer-uniform">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary float-end">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- Modal Export Excel --}}
-        {{-- Modal Export PDF --}}
-        <div class="modal center-modal fade" id="modalFormExportPDF" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Export Selected Item</h5>
-                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                        <h3>Are you sure you want to Export PDF these Selected Records?</h3>
-                        </p>
-                    </div>
-                    <div class="modal-footer modal-footer-uniform">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary float-end">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- Modal Export PDF --}}
     </section>
     @push('scripts')
         <script>

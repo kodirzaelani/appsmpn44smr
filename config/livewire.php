@@ -41,6 +41,7 @@ return [
 
     // 'layout' => 'layouts.app',
     'layout' => 'template.frontend.nusantara.layouts.appf',
+    // 'layout' => 'template.frontend.terasdigital.layouts.app',
 
     /*
     |--------------------------------------------------------------------------

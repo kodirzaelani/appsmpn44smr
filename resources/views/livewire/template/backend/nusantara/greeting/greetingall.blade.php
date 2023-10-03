@@ -11,8 +11,7 @@
                             <li class="breadcrumb-item"><a href="{{ route('backend.dashboard') }}"><i
                                         class="fa fa-home"><span class="path1"></span><span
                                             class="path2"></span></i></a></li>
-                            <li class="breadcrumb-item" aria-current="page">Sambutan Ketua</li>
-                            {{-- <li class="breadcrumb-item active" aria-current="page"></li> --}}
+                            <li class="breadcrumb-item" aria-current="page">Sambutan</li>
                         </ol>
                     </nav>
                 </div>
@@ -46,32 +45,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-5 col-md-5 col-12 mb-2">
-                                @if ($checked)
-                                    <div class="btn-group mb-5">
-                                        <button type="button" class="waves-effect waves-light btn btn-info">With
-                                            Checked ({{ count($checked) }})</button>
-                                        <button type="button"
-                                            class="waves-effect waves-light btn btn-info dropdown-toggle"
-                                            data-bs-toggle="dropdown">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormDeleteAll">
-                                                Delete Selected
-                                            </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportExcel">
-                                                Export Excel
-                                            </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportPDF">
-                                                Export PDF
-                                            </a>
-                                        </div>
-                                    </div>
-                                @endif
+
                             </div>
                             <div class="col-md-5 col-lg-5 col-12 mb-2 text-right ">
                                 <div class="form-group">
@@ -79,35 +53,13 @@
                                         <input type="search" wire:model.debounce.500ms="search" class="form-control"
                                             wire:keydown.escape="resetSearch" wire:keydown.tab="resetSearch"
                                             class="form-control float-right" placeholder="Search by ...">
-                                        <span class="input-group-text"><i class="ti-search"></i></span>
+                                        <span class="input-group-text"><i class="fa fa-search"
+                                                aria-hidden="true"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row mb-2">
-                            <!-- row count selected item -->
-                            <div class="col-xl-12 col-md-12 col-lg-12 col-12">
-                                @if ($selectPage)
-                                    <div class="col-md-10 mb-2">
-                                        @if ($selectAll)
-                                            <div>
-                                                You have selected all <strong>{{ $datagreetingall->total() }}</strong>
-                                                items.
-                                            </div>
-                                        @else
-                                            <div>
-                                                You have selected <strong>{{ count($checked) }}</strong> items, Do you
-                                                want to Select All
-                                                <strong>{{ $datagreetingall->total() }}</strong>?
-                                                <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
-                                            </div>
-                                        @endif
-
-                                    </div>
-                                @endif
-                            </div> <!-- end row count selected item -->
-                        </div>
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                                 @if ($datagreetingall->count())
@@ -136,35 +88,26 @@
                                                         <th class="text-right" scope="row">
                                                             {{ $no + $datagreetingall->firstItem() }}</th>
 
-                                                        <td width="16%">
+                                                        <td width="16%" class="text-center">
                                                             <img class="w-80 rounded"
                                                                 src="{{ $item->imageThumbUrl ? $item->imageThumbUrl : '/assets/images/no_image.png' }}"
                                                                 alt="..."><br>
-                                                            <small>
-                                                                @if ($item->masterstatus == 0)
-                                                                    Publish
-                                                                @else
-                                                                    unPublish
-                                                                @endif
+                                                            <small class="pt-2">
+                                                                {!! $item->statuslabel !!}
                                                             </small>
                                                         </td>
                                                         <td>
                                                             <a title="Show"
                                                                 href="{{ route('greeting.detail', $item->slug) }}"
-                                                                target="_blank"
-                                                                style="text-decoration: none; color:#212529;">
+                                                                target="_blank" style="text-decoration: none;">
                                                                 {{ !empty($item->title) ? $item->title : '' }}
-                                                            </a>
+                                                            </a><br>
+                                                            <small>
+                                                                {{ TanggalID('j M Y', $item->created_at) }}
+                                                            </small>
                                                         </td>
-                                                        <td width="10%">
-                                                            {!! $item->statuslabel !!}
-                                                        </td>
-                                                        <td>
-                                                            {{ TanggalID('j M Y', $item->created_at) }}
-                                                        </td>
-                                                        <td>
+                                                        <td width="20%">
                                                             {{ !empty($item->author_id) ? $item->author->name : '' }}<br>
-                                                            <small>{{ TanggalID('j M Y', $item->updated_at) }}</small>
                                                         </td>
                                                         <td class="text-center align-midle">
                                                             @if ($item->status == 1)
@@ -200,8 +143,7 @@
                                                             <button
                                                                 wire:click="selectItem('{{ $item->id }}' , 'delete')"
                                                                 class="btn btn-xs btn-danger mx-1 my-1"
-                                                                title="Delete"><i
-                                                                    class="fa fa-trash    "></i></button>
+                                                                title="Delete"><i class="fa fa-trash    "></i></button>
                                                         </td>
                                                     </tr>
                                                 @endforeach

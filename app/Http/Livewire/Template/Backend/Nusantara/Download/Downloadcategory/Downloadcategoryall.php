@@ -24,7 +24,7 @@ class Downloadcategoryall extends Component
     public $headersTable;
     public $action;
     public $selectedItem;
-    public $uploadPath= 'uploads/images/downloadcategory';
+    public $uploadPath = 'uploads/images/downloadcategory';
 
     public $author_id;
     public $title;
@@ -47,7 +47,7 @@ class Downloadcategoryall extends Component
     {
         return [
             // 'image'           => 'Image',
-            'title'           => 'Title',
+            'title' => 'Title',
         ];
     }
 
@@ -56,14 +56,13 @@ class Downloadcategoryall extends Component
         $this->sortColumn = $column;
 
         $this->sortDirection = $this->reverseSort();
-
     }
 
     public function reverseSort()
     {
         return $this->sortDirection === 'asc'
-        ? 'desc'
-        : 'asc';
+            ? 'desc'
+            :  'asc';
     }
 
     public function mount()
@@ -71,7 +70,6 @@ class Downloadcategoryall extends Component
         $this->fill(request()->only('search', 'currentPage'));
         $this->resetSearch();
         $this->headersTable = $this->headerConfig();
-
     }
 
     public function resetSearch()
@@ -87,7 +85,7 @@ class Downloadcategoryall extends Component
     public function getDownloadcategoryallQueryProperty()
     {
         return Downloadcategory::orderBy($this->sortColumn, $this->sortDirection)
-        ->search(trim($this->search)); //search menggunakan scopeSearch di model
+            ->search(trim($this->search));  //search menggunakan scopeSearch di model
     }
 
     public function getDownloadcategoryallProperty()
@@ -112,7 +110,7 @@ class Downloadcategoryall extends Component
     public function selectAll()
     {
         $this->selectAll = true;
-        $this->checked = $this->downloadcategoryallQuery->pluck('id')->map(fn ($item) => (string) $item)->toArray();
+        $this->checked   = $this->downloadcategoryallQuery->pluck('id')->map(fn ($item) => (string) $item)->toArray();
     }
 
     public function isChecked($id)
@@ -124,17 +122,18 @@ class Downloadcategoryall extends Component
     {
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
-            'title' => 'Success!',
-            'timer'=>5000,
-            'type'=>'success',
-            'text'=>'Download Category ' . $downloadcategory['title'] . ' was Stored',
-            'toast'=>true, // Jika mau menggunakan toas
-            'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'title'             => 'Success!',
+            'timer'             => 5000,
+            'type'              => 'success',
+            'text'              => 'Download Category ' . $downloadcategory['title'] . ' was Stored',
+            'toast'             => true,                                                                // Jika mau menggunakan toas
+            'position'          => 'top-right',                                                         // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton'  => false,
         ]);
         $this->resetErrorBag();
         $this->resetValidation();
+        $this->statusView = false;
     }
 
     public function downloadcategoryUpdated($downloadcategory)
@@ -142,14 +141,15 @@ class Downloadcategoryall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'type'=>'success',
-            'text'=>'Download Category ' . $downloadcategory['title'] . ' was Updated',
+            'timer' => 5000,
+            'type'  => 'success',
+            'text'  => 'Download Category ' . $downloadcategory['title'] . ' was Updated',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton'  => false,
         ]);
+        $this->statusView = false;
         $this->statusUpdate = false;
     }
 
@@ -158,9 +158,9 @@ class Downloadcategoryall extends Component
         $this->statusView = false;
 
         if ($action == 'create') {
-            $this->statusView = true;
+            $this->statusView   = true;
             $this->statusUpdate = false;
-        } elseif ($action == 'cancel'){
+        } elseif ($action == 'cancel') {
             $this->statusView = false;
         }
     }
@@ -188,45 +188,45 @@ class Downloadcategoryall extends Component
         }
     }
 
-     public function changeDraft()
-     {
-        $data = [];
-        $data = array_merge($data, ['status' => 0]);
+    public function changeDraft()
+    {
+        $data             = [];
+        $data             = array_merge($data, ['status' => 0]);
         $downloadcategory = Downloadcategory::find($this->selectedItem);
 
         $downloadcategory->update($data);
         session()->flash('success', 'Downloadcategory Change to Draft was successfully');
         return redirect()->to('backend/downloadcategories');
-     }
+    }
 
-     public function changePublish()
-     {
-        $data = [];
-        $data = array_merge($data, ['status' => 1]);
+    public function changePublish()
+    {
+        $data             = [];
+        $data             = array_merge($data, ['status' => 1]);
         $downloadcategory = Downloadcategory::find($this->selectedItem);
 
         $downloadcategory->update($data);
         session()->flash('success', 'Downloadcategory Change to Publish was successfully');
         return redirect()->to('backend/downloadcategories');
-     }
+    }
 
     public function deleteRecords()
     {
         Downloadcategory::whereKey($this->checked)->delete();
 
-        $this->checked = [];
-        $this->selectAll = false;
+        $this->checked    = [];
+        $this->selectAll  = false;
         $this->selectPage = false;
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Deleted Success!',
-            'timer'=>4000,
-            'icon'=>'success',
-            'text'=>'Selected Records were deleted Successfully',
+            'timer' => 4000,
+            'icon'  => 'success',
+            'text'  => 'Selected Records were deleted Successfully',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton'  => false,
         ]);
         $this->emit('refreshParent');
         $this->dispatchBrowserEvent('closeDeleteModalAll');
@@ -234,60 +234,57 @@ class Downloadcategoryall extends Component
 
 
 
- // Delete Single Record
- public function delete()
- {
-     $masterdownloadcategory = Downloadcategory::where('masterstatus', 1)->first();
+    // Delete Single Record
+    public function delete()
+    {
+        $masterdownloadcategory = Downloadcategory::where('masterstatus', 1)->first();
 
-     $downloadcategory = Downloadcategory::find($this->selectedItem);
+        $downloadcategory = Downloadcategory::find($this->selectedItem);
 
-     if ($downloadcategory->masterstatus == config('cms.default_masterdownloadcategory')) {
-         $this->dispatchBrowserEvent('swal:modaldelete', [
-             'title' => 'Importan!',
-             'timer' => 4000,
-             'type'  => 'warning',
-             'text'  => 'Download Category cannot deleted',
-             // 'toast'=>true, // Jika mau menggunakan toas
-             // 'position'=>'top-right', // Jika mau menggunakan toas
-             'showConfirmButton' => true,
-             'showCancelButton'  => false,
-         ]);
-         $this->emit('refreshParent');
-         $this->dispatchBrowserEvent('closeDeleteModal');
+        if ($downloadcategory->masterstatus == config('cms.default_masterdownloadcategory')) {
+            $this->dispatchBrowserEvent('swal:modaldelete', [
+                'title' => 'Importan!',
+                'timer' => 4000,
+                'type'  => 'warning',
+                'text'  => 'Download Category cannot deleted',
+                // 'toast'=>true, // Jika mau menggunakan toas
+                // 'position'=>'top-right', // Jika mau menggunakan toas
+                'showConfirmButton' => true,
+                'showCancelButton'  => false,
+            ]);
+            $this->emit('refreshParent');
+            $this->dispatchBrowserEvent('closeDeleteModal');
+        } else {
 
-     } else {
+            // Update downloads yang downloadcategory_id dihapus ke downloadcategory_id master
+            Download::where('downloadcategory_id', $downloadcategory->id)->update(['downloadcategory_id' => $masterdownloadcategory->id]);
 
-         // Update downloads yang downloadcategory_id dihapus ke downloadcategory_id master
-         Download::where('downloadcategory_id', $downloadcategory->id)->update(['downloadcategory_id' => $masterdownloadcategory->id]);
+            Downloadcategory::destroy($this->selectedItem);
 
-         Downloadcategory::destroy($this->selectedItem);
+            if ($downloadcategory->image) {
+                $this->removeImage($downloadcategory->image);
+            }
+            // Sweet alert
+            $this->dispatchBrowserEvent('swal:modal', [
+                'title' => 'Deleted Success!',
+                'timer' => 4000,
+                'type'  => 'success',
+                'text'  => 'Download Category was deleted',
+                // 'toast'=>true, // Jika mau menggunakan toas
+                // 'position'=>'top-right', // Jika mau menggunakan toas
+                'showConfirmButton' => true,
+                'showCancelButton'  => false,
+            ]);
 
-         if ($downloadcategory->image) {
-             $this->removeImage($downloadcategory->image);
-         }
-         // Sweet alert
-         $this->dispatchBrowserEvent('swal:modal', [
-             'title' => 'Deleted Success!',
-             'timer' => 4000,
-             'type'  => 'success',
-             'text'  => 'Download Category was deleted',
-             // 'toast'=>true, // Jika mau menggunakan toas
-             // 'position'=>'top-right', // Jika mau menggunakan toas
-             'showConfirmButton' => true,
-             'showCancelButton'  => false,
-         ]);
-
-         $this->emit('refreshParent');
-         // This will hide the modal in the frontend
-         $this->dispatchBrowserEvent('closeDeleteModal');
-     }
-
-
- }
+            $this->emit('refreshParent');
+            // This will hide the modal in the frontend
+            $this->dispatchBrowserEvent('closeDeleteModal');
+        }
+    }
 
     public function render()
     {
-        return view('livewire.template.backend.nusantara.download.downloadcategory.downloadcategoryall',[
+        return view('livewire.template.backend.nusantara.download.downloadcategory.downloadcategoryall', [
             'datadownloadcategoryall' => $this->downloadcategoryall,
         ]);
     }
