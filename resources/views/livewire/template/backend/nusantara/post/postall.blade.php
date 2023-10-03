@@ -18,31 +18,7 @@
                 </select>
             </div>
             <div class="col-lg-5 col-md-5 col-12 mb-2">
-                @if ($checked)
-                    <div class="btn-group mb-5">
-                        <button type="button" class="waves-effect waves-light btn btn-info">With Checked
-                            ({{ count($checked) }})</button>
-                        <button type="button" class="waves-effect waves-light btn btn-info dropdown-toggle"
-                            data-bs-toggle="dropdown">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modalFormDeleteAll">
-                                Delete Selected
-                            </a>
-                            <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modalFormExportExcel">
-                                Export Excel
-                            </a>
-                            <a href="#" class="dropdown-item" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modalFormExportPDF">
-                                Export PDF
-                            </a>
-                        </div>
-                    </div>
-                @endif
+
             </div>
             <div class="col-md-5 col-lg-5 col-12 mb-2 text-right ">
                 <div class="form-group">
@@ -56,28 +32,7 @@
             </div>
         </div>
 
-        <div class="row mb-2">
-            <!-- row count selected item -->
-            <div class="col-xl-12 col-md-12 col-lg-12 col-12">
-                @if ($selectPage)
-                    <div class="col-md-10 mb-2">
-                        @if ($selectAll)
-                            <div>
-                                You have selected all <strong>{{ $datapostall->total() }}</strong> items.
-                            </div>
-                        @else
-                            <div>
-                                You have selected <strong>{{ count($checked) }}</strong> items, Do you want to Select
-                                All
-                                <strong>{{ $datapostall->total() }}</strong>?
-                                <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
-                            </div>
-                        @endif
 
-                    </div>
-                @endif
-            </div> <!-- end row count selected item -->
-        </div>
         <div class="row">
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 @if ($datapostall->count())
@@ -86,12 +41,7 @@
                             <tbody>
                                 <tr>
                                     <th width="4%" scope="col">#</th>
-                                    {{-- <th>
-                                    <div class="checkbox">
-                                        <input id="checkbox2" type="checkbox" wire:model="selectPage">
-                                        <label for="checkbox2"> </label>
-                                    </div>
-                                </th> --}}
+
                                     @foreach ($headersTable as $key => $value)
                                         <th scope="col" wire:click.prevent="sortBy('{{ $key }}')"
                                             style="cursor: pointer">
@@ -108,12 +58,7 @@
                                 @foreach ($datapostall as $no => $item)
                                     <tr class="@if ($this->isChecked($item->id)) table-primary @endif">
                                         <th class="text-right" scope="row">{{ $no + $datapostall->firstItem() }}</th>
-                                        {{-- <td>
-                                    <div class="checkbox">
-                                        <input type="checkbox" id="Checkbox_{{ $no + $datapostall->firstItem() }}" value="{{ $item->id }}" wire:model="checked">
-                                        <label for="Checkbox_{{ $no + $datapostall->firstItem() }}"></label>
-                                    </div>
-                                </td> --}}
+
                                         <td width="10%">
                                             <img class="w-80 rounded"
                                                 src="{{ $item->imageThumbUrl ? $item->imageThumbUrl : '/assets/images/no_image.png' }}"
@@ -154,12 +99,7 @@
                                             @endif
                                         </td>
 
-                                        {{-- <td >
-                                    <a title="Category"  href="{{ route('post.category', $item->postcategory->slug) }}" target="_blank" style="text-decoration: none; ">
-                                        {{ !empty($item->postcategory_id) ? $item->postcategory->title:'' }}
-                                    </a>
-                                    <br> <small>Sub: {{ !empty($item->postsubcategory_id) ? $item->postsubcategory->title:'' }}</small>
-                                </td> --}}
+
                                         <td class="text-center align-midle">
                                             @if ($item->author_id == $author_id || $currentUser->masterstatus == 1)
                                                 @if ($item->selection == 1)
@@ -172,8 +112,7 @@
                                                             class="fa fa-bookmark" aria-hidden="true"></i></button>
                                                 @endif
                                                 @if ($item->headline == 1)
-                                                    <button
-                                                        wire:click="selectItem('{{ $item->id }}', 'inactiveh')"
+                                                    <button wire:click="selectItem('{{ $item->id }}', 'inactiveh')"
                                                         class="btn btn-xs btn-warning" title="Change to General"><i
                                                             class="fa fa-window-maximize"></i></button>
                                                 @else

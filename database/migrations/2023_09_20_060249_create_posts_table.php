@@ -26,7 +26,7 @@ return new class extends Migration
             $table->text('video')->nullable();
             $table->text('caption_video')->nullable();
             $table->boolean('status');
-            $table->boolean('comment_status');
+            $table->boolean('comment_status')->nullable();
             $table->boolean('statuspost')->nullable();
             $table->date('published_at')->nullable();
             $table->integer('view_count')->default(0);

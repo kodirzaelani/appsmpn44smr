@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\RequestPostStore;
 use App\Http\Requests\RequestPostUpdate;
-use App\Models\Postsubcategory;
 
 class PostController extends Controller
 {
@@ -38,7 +37,6 @@ class PostController extends Controller
     {
         return view('template.backend.nusantara.post.create', [
             'postcatagories' => Postcategory::orderBy('title', 'asc')->get(),
-            'postsubcatagories' => Postsubcategory::orderBy('title', 'asc')->get(),
             'tags' => Tag::orderBy('title', 'asc')->get(),
         ]);
     }
@@ -49,12 +47,10 @@ class PostController extends Controller
         $data = [
             'title'              => $request->input('title'),
             'postcategory_id'    => $request->input('postcategory_id'),
-            'postsubcategory_id' => $request->input('postsubcategory_id'),
             'slug'               => Str::slug($request->input('title')),
             'headline'           => $request->input('headline'),
             'selection'          => $request->input('selection'),
             'content'            => $request->input('content'),
-            'excerpt'            => Str::limit($request->input('content'), 100),
             'video'              => $request->input('video'),
             'caption_video'      => $request->input('caption_video'),
             'caption_image'      => $request->input('caption_image'),
@@ -149,7 +145,6 @@ class PostController extends Controller
         return view('template.backend.nusantara.post.edit', [
             'postcatagories'    => Postcategory::orderBy('title', 'asc')->get(),
             'post'              => $post,
-            'postsubcatagories' => Postsubcategory::orderBy('title', 'asc')->get(),
             'tags'              => Tag::orderBy('title', 'asc')->get(),
         ]);
     }
@@ -166,7 +161,6 @@ class PostController extends Controller
         //cek gambar lama
         $oldImage = $post->image;
 
-        $oldPostsubcategory = $post->postsubcategory;
 
         // Default data
         $data = [
@@ -176,7 +170,6 @@ class PostController extends Controller
             'headline'        => $request->input('headline'),
             'selection'       => $request->input('selection'),
             'content'         => $request->input('content'),
-            'excerpt'         => Str::limit($request->input('content'), 100),
             'video'           => $request->input('video'),
             'caption_video'   => $request->input('caption_video'),
             'caption_image'   => $request->input('caption_image'),
@@ -187,11 +180,7 @@ class PostController extends Controller
             'updated_by'      => Auth::id(),
         ];
 
-        if (!empty($request->has('postsubcategory_id'))) {
-            $data = array_merge($data, [
-                'postsubcategory_id'    => $request->input('postsubcategory_id'),
-            ]);
-        }
+
 
         //upload image (cara kedua)
         if ($request->has('image')) {
@@ -287,18 +276,5 @@ class PostController extends Controller
             if (file_exists($thumbnailPath)) unlink($thumbnailPath);
             if (file_exists($watermarkPath)) unlink($watermarkPath);
         }
-    }
-
-    /**
-     * Get Sub Category.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getsubcategorypost($postcategory_id)
-    {
-        // menampilkan data menggynakan Query builder buka elequent
-        // $subcategory = DB::table('postsubcategories')->where('postcategory_id', $postcategory_id)->get();
-        $subcategory = Postsubcategory::where('postcategory_id', $postcategory_id)->get();
-        return response()->json($subcategory);
     }
 }

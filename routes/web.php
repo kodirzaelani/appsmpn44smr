@@ -4,10 +4,12 @@ use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Frontend\Nusantara1\Post\Postcategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Main\Homeindex;
 use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagedetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postdetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Post\Posttaglist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagecategorylist;
+use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postcategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Greeting\Greetingdetail;
 
 Route::get('/', Homeindex::class)->name('root');
@@ -17,9 +19,9 @@ Route::prefix('posts')->group(function () {
     // Route::get('/news', Postnewslist::class)->name('post.news');
     // Route::get('/article', Postarticlelist::class)->name('post.article');
     // Route::get('/search', Postsearch::class)->name('post.search');
-    // Route::get('/detail/{slug}', Postdetail::class)->name('post.detail');
-    // Route::get('/category/{slug}', Postcategorylist::class)->name('post.category');
-    // Route::get('/tag/{slug}', Posttaglist::class)->name('post.tag');
+    Route::get('/detail/{slug}', Postdetail::class)->name('post.detail');
+    Route::get('/category/{slug}', Postcategorylist::class)->name('post.category');
+    Route::get('/tag/{slug}', Posttaglist::class)->name('post.tag');
 });
 
 Route::prefix('page')->group(function () {
