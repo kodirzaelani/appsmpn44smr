@@ -10,59 +10,82 @@
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-12">
                     <div class="blog-post mb-30">
-                        <div class="blog-detail">
+                        <div class="blog-detail popup-vdo">
                             <div class="entry-title mb-10">
-                                <a href="#" class="fs-24">{{ $post->title }}</a>
+                                <a href="#">{{ $video->title }}</a>
                             </div>
                             <hr>
-                            <div class="entry-meta mb-5">
+                            <div class="entry-meta ">
                                 <ul class="list-unstyled">
                                     <li>
                                         <a href="#"><i class="fa fa-folder-open-o"></i>
-                                            {{ $post->postcategory->title }}</a>
+                                            {{ $video->videocategory->title }}</a>
                                     </li>
 
                                     <li>
-                                        <a href="#"><i class="fa fa-user"></i> {{ $post->author->name }}</a>
+                                        <a href="#"><i class="fa fa-user"></i> {{ $video->author->name }}</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-calendar-o"></i>
-                                            {{ TanggalID('j M Y', $post->created_at) }}</a>
+                                            {{ TanggalID('j M Y', $video->created_at) }}</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-eye"></i> {{ $post->view_count }} Kali</a>
+                                        <a href="#"><i class="fa fa-eye"></i> {{ $video->view_count }} Kali</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="entry-image clearfix">
-                            <img class="img-fluid px-30"
-                                src="{{ $post->imageUrl ? $post->imageUrl : '/assets/images/no_image.png' }}"
-                                alt="">
-                            <p class="fw-normal fst-italic px-30 mt-10">
-                                {!! $post->caption_image !!}
-                            </p>
-
+                        <div class="entry-image clearfix position-relative">
+                            <a href="https://www.youtube.com/watch?v={{ $video->video }}" class="popup-youtube"
+                                title="Play">
+                                <img class="img-fluid px-30"
+                                    src="{{ $video->imageUrl ? $video->imageUrl : '/assets/images/no_image.png' }}"
+                                    alt="">
+                                <a href="https://www.youtube.com/watch?v={{ $video->video }}"
+                                    class="popup-youtube play-vdo-bt waves-effect waves-circle btn btn-circle btn-primary btn-lg"
+                                    title="Play"><i class="mdi mdi-play"></i>
+                                </a>
+                            </a>
                         </div>
-                        <div class="blog-detail mt-0 pt-0">
+                        <div class="blog-detail mt-20 pt-0">
                             <hr>
                             <div class="entry-content">
-                                {!! $post->content !!}
+                                {!! $video->description !!}
                             </div>
                         </div>
                     </div>
-                    <div class="box">
-                        <div class="box-body">
-                            <div class="widget">
-                                <h4 class="mt-0 pb-15 mb-25 bb-1">TAGS</h4>
-                                <div class="widget-tags">
-                                    <ul class="list-unstyled">
-                                        {!! $post->tags_html !!}
-                                    </ul>
+                    <div class="row justify-content-start">
+                        <div class="col-lg-12 col-12 text-start">
+                            <h3 class="mb-15">Terkait</h3>
+                            {{-- <hr class="w-100 bg-primary"> --}}
+                        </div>
+                    </div>
+
+                    @if ($videoother->count())
+                        <div class="row mt-30 justify-content-center">
+                            @foreach ($videoother as $item)
+                                <div class="col-xl-4 col-md-4 col-12">
+                                    <div class="blog-post h-400">
+                                        <div class="entry-image clearfix">
+                                            <a href="{{ route('video.detail', $item->slug) }}">
+                                                <img class="img-fluid"
+                                                    src="{{ $item->imageThumbUrl ? $item->imageThumbUrl : '/uploads/images/logo/' . $global_option->logo }}"
+                                                    alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-detail">
+                                            <div class="entry-title mb-10">
+                                                <a
+                                                    href="{{ route('video.detail', $item->slug) }}">{{ $item->title }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                    </div>
+                    @endif
+
+
                     <div class="box">
                         <div class="box-body">
                             <div class="widget">
@@ -203,6 +226,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="side-block px-20 py-10 bg-white">
                         <div class="widget courses-search-bx placeholdertx mb-10">
@@ -222,3 +246,9 @@
         </div>
     </section>
 </div>
+@push('scripts')
+    <script src="{{ asset('') }}assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js">
+    </script>
+    <script src="{{ asset('') }}assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js">
+    </script>
+@endpush

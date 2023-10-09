@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('') }}assets/images/favicon.ico">
 
-    <title>SMPN 44 Samarinda</title>
+    <title>@yield('title')</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('') }}assets/frontend/css/vendors_css.css">

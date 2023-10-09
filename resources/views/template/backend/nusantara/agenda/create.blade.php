@@ -30,8 +30,8 @@
                 <div class="col-lg-8 col-12">
                     <div class="box">
                         <div class="box-header">
-                            <h4 class="box-title">Create a Agenda
-                                {{-- <small>Advanced and full of features</small> --}}
+                            <h4 class="box-title">
+                                Create a Agenda
                             </h4>
                         </div>
                         <!-- /.box-header -->

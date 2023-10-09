@@ -4,7 +4,7 @@
 
         <nav hidden class="nav-white nav-transparent">
             <div class="nav-header">
-                <a href="index.html" class="brand">
+                <a href="{{ route('root') }}" class="brand">
                     <img src="{{ asset('') }}assets/images/logo-light-text2.png" alt="" />
                 </a>
                 <button class="toggle-bar">
@@ -217,13 +217,9 @@
                     </div>
                 </li>
             </ul>
+            @livewire('template.frontend.nusantara.post.postheadersearch')
 
-            <div class="wrap-search-fullscreen">
-                <div class="container">
-                    <button class="close-search"><span class="ti-close"></span></button>
-                    <input type="text" placeholder="Kata kunci pencarian ..." />
-                </div>
-            </div>
+
         </nav>
     </header>
 </div>

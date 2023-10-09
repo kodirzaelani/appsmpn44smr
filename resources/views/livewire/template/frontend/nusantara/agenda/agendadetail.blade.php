@@ -10,59 +10,74 @@
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-12">
                     <div class="blog-post mb-30">
-                        <div class="blog-detail">
+                        <div class="blog-detail popup-vdo">
                             <div class="entry-title mb-10">
-                                <a href="#" class="fs-24">{{ $post->title }}</a>
+                                <a href="#">{{ $agenda->title }}</a>
                             </div>
                             <hr>
-                            <div class="entry-meta mb-5">
+                            <div class="entry-meta ">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#"><i class="fa fa-folder-open-o"></i>
-                                            {{ $post->postcategory->title }}</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#"><i class="fa fa-user"></i> {{ $post->author->name }}</a>
+                                        <a href="#"><i class="fa fa-user"></i> {{ $agenda->author->name }}</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-calendar-o"></i>
-                                            {{ TanggalID('j M Y', $post->created_at) }}</a>
+                                            {{ TanggalID('j M Y', $agenda->created_at) }}</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-eye"></i> {{ $post->view_count }} Kali</a>
+                                        <a href="#"><i class="fa fa-eye"></i> {{ $agenda->view_count }} Kali</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="entry-image clearfix">
+                        <div class="entry-image clearfix position-relative">
                             <img class="img-fluid px-30"
-                                src="{{ $post->imageUrl ? $post->imageUrl : '/assets/images/no_image.png' }}"
+                                src="{{ $agenda->imageUrl ? $agenda->imageUrl : '/assets/images/no_image.png' }}"
                                 alt="">
-                            <p class="fw-normal fst-italic px-30 mt-10">
-                                {!! $post->caption_image !!}
-                            </p>
-
                         </div>
-                        <div class="blog-detail mt-0 pt-0">
+                        <div class="blog-detail mt-20 pt-0">
+                            <div class="entry-meta ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fa fa-calendar-o"></i>Mulai :
+                                        {{ TanggalID('j M Y', $agenda->startdate) }}
+                                    </li>
+                                    @if ($agenda->startdate != $agenda->enddate)
+                                        <li>
+                                            |
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                                            Selesai: {{ TanggalID('j M Y', $agenda->enddate) }}
+                                        </li>
+                                    @endif
+                                </ul>
+                                <ul class="list-unstyled mt-10">
+                                    <li>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        Pukul: {{ $agenda->periode }} s.d {{ $agenda->endperiode }}
+                                    </li> <br>
+                                    <li>
+                                        <a href="{{ $agenda->location }}" target="_blank"><i
+                                                class="fa fa-map-marker mt-10" aria-hidden="true"></i>
+                                            Tempat kegiatan </a>
+                                    </li>
+                                    </li> <br>
+                                    <li>
+                                        <a href="{{ asset('') }}uploads/{{ $agenda->attach }}" target="_blank">
+                                            <i class="fa fa-file-archive-o mt-10" aria-hidden="true"></i>
+                                            Lampiran </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <hr>
                             <div class="entry-content">
-                                {!! $post->content !!}
+                                {!! $agenda->description !!}
                             </div>
                         </div>
                     </div>
-                    <div class="box">
-                        <div class="box-body">
-                            <div class="widget">
-                                <h4 class="mt-0 pb-15 mb-25 bb-1">TAGS</h4>
-                                <div class="widget-tags">
-                                    <ul class="list-unstyled">
-                                        {!! $post->tags_html !!}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
                     <div class="box">
                         <div class="box-body">
                             <div class="widget">
@@ -203,6 +218,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="side-block px-20 py-10 bg-white">
                         <div class="widget courses-search-bx placeholdertx mb-10">
@@ -222,3 +238,9 @@
         </div>
     </section>
 </div>
+@push('scripts')
+    <script src="{{ asset('') }}assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js">
+    </script>
+    <script src="{{ asset('') }}assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js">
+    </script>
+@endpush

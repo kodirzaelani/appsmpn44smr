@@ -11,7 +11,7 @@
                 <div class="row mt-30 justify-content-center">
                     @foreach ($posts as $item)
                         <div class="col-xl-4 col-md-4 col-12">
-                            <div class="blog-post">
+                            <div class="blog-post h-450">
                                 <div class="entry-image clearfix">
                                     <img class="img-fluid"
                                         src="{{ $item->imageThumbUrl ? $item->imageThumbUrl : '/uploads/images/logo/' . $global_option->logo }}"
@@ -23,50 +23,37 @@
                                     </div>
                                     <div class="entry-meta mb-10">
                                         <ul class="list-unstyled">
-                                            <li><a href="#"><i class="fa fa-folder-open-o"></i> Design</a></li>
-                                            <li><a href="#"><i class="fa fa-comment-o"></i> 5</a></li>
-                                            <li><a href="#"><i class="fa fa-calendar-o"></i> 12 Aug 2020</a></li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-calendar-o"></i>
+                                                    {{ TanggalID('j M Y', $item->created_at) }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-folder-open-o"></i>
+                                                    {{ $item->postcategory->title }}</a>
+                                            </li>
+                                            {{-- <li>
+                                                <a href="#"><i class="fa fa-eye"></i> {{ $item->view_count }}
+                                                    Kali</a>
+                                            </li> --}}
+
+
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! Str::words($item->content, 70, ' ...') !!}
-                                    </div>
-                                    <div class="entry-share d-flex justify-content-between align-items-center">
-                                        <div class="entry-button">
-                                            <a href="{{ route('post.detail', $item->slug) }}"
-                                                class="btn btn-primary btn-sm">Read
-                                                more</a>
-                                        </div>
-                                        <div class="social">
-                                            <strong>Share : </strong>
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"> <i class="fa fa-twitter"></i> </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"> <i class="fa fa-pinterest-p"></i> </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"> <i class="fa fa-dribbble"></i> </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    {{-- <div class="entry-content">
+                                        {!! Str::words($item->content, 50, ' ...') !!}
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-10">
                     <div class="col-2 text-center">
                         {{ $posts->links('vendor.livewire.simple-bootstrap') }}
                     </div>
                 </div>
             @else
-                <h2>Berita belum tersedia</h2>
+                <h2 class="text-center text-info">Berita belum tersedia</h2>
             @endif
         </div>
     </section>

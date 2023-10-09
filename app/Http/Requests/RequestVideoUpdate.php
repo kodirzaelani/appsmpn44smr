@@ -26,7 +26,7 @@ class RequestVideoUpdate extends FormRequest
         return [
             'image'       => 'image|mimes:jpeg,jpg,png|max:1500',
             'title'       => 'required',
-            'description' => 'required|max:350',
+            'description' => 'required',
             'video'       => 'required',
             'videocategory_id'       => 'required',
         ];

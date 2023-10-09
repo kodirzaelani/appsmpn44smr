@@ -4,12 +4,10 @@ namespace App\Http\Livewire\Template\Frontend\Nusantara\Partials;
 
 use Livewire\Component;
 
-class Header extends Component
+class Headerpostall extends Component
 {
-
-
     public function render()
     {
-        return view('livewire.template.frontend.nusantara.partials.header');
+        return view('livewire.template.frontend.nusantara.partials.headerpostall');
     }
 }

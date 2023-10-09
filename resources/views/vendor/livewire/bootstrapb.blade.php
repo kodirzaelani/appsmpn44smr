@@ -5,9 +5,9 @@
         <ul class="pagination">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
-                {{-- <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                     <span class="page-link" aria-hidden="true">&lsaquo;</span>
-                </li> --}}
+                </li>
             @else
                 <li class="page-item">
                     <button type="button"
@@ -52,9 +52,9 @@
                         wire:loading.attr="disabled" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</button>
                 </li>
             @else
-                {{-- <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                     <span class="page-link" aria-hidden="true">&rsaquo;</span>
-                </li> --}}
+                </li>
             @endif
         </ul>
     @endif

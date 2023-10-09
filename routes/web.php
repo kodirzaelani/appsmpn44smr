@@ -1,26 +1,35 @@
 <?php
 
+use App\Models\Album;
 use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postall;
+use App\Http\Livewire\Template\Frontend\Nusantara\Album\Albumall;
 use App\Http\Livewire\Template\Frontend\Nusantara\Main\Homeindex;
+use App\Http\Livewire\Template\Frontend\Nusantara\Video\Videoall;
 use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagedetail;
 use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postdetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postsearch;
+use App\Http\Livewire\Template\Frontend\Nusantara\Agenda\Agendaall;
 use App\Http\Livewire\Template\Frontend\Nusantara\Post\Posttaglist;
+use App\Http\Livewire\Template\Frontend\Nusantara\Album\Albumdetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Video\Videodetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Agenda\Agendadetail;
 use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagecategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postcategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Greeting\Greetingdetail;
 
 Route::get('/', Homeindex::class)->name('root');
 
-Route::prefix('posts')->group(function () {
-    // Route::get('', Postall::class)->name('post.all');
+Route::prefix('berita')->group(function () {
+    Route::get('', Postall::class)->name('post.all');
     // Route::get('/news', Postnewslist::class)->name('post.news');
     // Route::get('/article', Postarticlelist::class)->name('post.article');
-    // Route::get('/search', Postsearch::class)->name('post.search');
+    Route::get('/search', Postsearch::class)->name('post.search');
     Route::get('/detail/{slug}', Postdetail::class)->name('post.detail');
-    Route::get('/category/{slug}', Postcategorylist::class)->name('post.category');
+    Route::get('/kategori/{slug}', Postcategorylist::class)->name('post.category');
     Route::get('/tag/{slug}', Posttaglist::class)->name('post.tag');
 });
 
@@ -31,6 +40,20 @@ Route::prefix('page')->group(function () {
 
 Route::prefix('greeting')->group(function () {
     Route::get('/detail/{slug}', Greetingdetail::class)->name('greeting.detail');
+});
+
+Route::prefix('video')->group(function () {
+    Route::get('', Videoall::class)->name('video.all');
+    Route::get('/detail/{slug}', Videodetail::class)->name('video.detail');
+});
+
+Route::prefix('agenda')->group(function () {
+    Route::get('', Agendaall::class)->name('agenda.all');
+    Route::get('/detail/{slug}', Agendadetail::class)->name('agenda.detail');
+});
+Route::prefix('album')->group(function () {
+    Route::get('', Albumall::class)->name('album.all');
+    Route::get('/detail/{slug}', Albumdetail::class)->name('album.detail');
 });
 
 Auth::routes();
