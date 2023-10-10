@@ -67,7 +67,7 @@
                             </div>
                         @endforeach
                     @else
-                        <h2>Berita belum tersedia atau kata kunci tidak ditemukan</h2>
+                        <h2>Video belum tersedia atau kata kunci tidak ditemukan</h2>
                     @endif
 
 

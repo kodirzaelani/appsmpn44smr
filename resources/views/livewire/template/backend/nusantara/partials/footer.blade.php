@@ -6,12 +6,18 @@
                     <a class="nav-link" href="javascript:void(0)">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                        href="https://themeforest.net/item/eduadmin-responsive-bootstrap-admin-template-dashboard/29365133"
-                        target="_blank">Purchase Now</a>
+                    <a class="nav-link" href="#" target="_blank">Teras Petani</a>
                 </li>
             </ul>
         </div>
-        &copy; 2022 <a href="https://www.multipurposethemes.com/">Multipurpose Themes</a>. All Rights Reserved.
+        &copy; 2023 @php
+            $date = date('Y');
+            if ($date == 2023) {
+                echo '';
+            } else {
+                echo ' - ' . date('Y');
+            }
+        @endphp <a target="_blank" href="{{ config('app.url') }}">SMPN 44 Samarinda</a>. All
+        Rights Reserved.
     </footer>
 </div>
