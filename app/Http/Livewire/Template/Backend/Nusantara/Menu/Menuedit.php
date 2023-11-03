@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Template\Backend\Nusantara\Menu;
 
-use App\Models\Menufrontend;
 use Livewire\Component;
+use App\Models\Menufrontend;
 
 class Menuedit extends Component
 {
@@ -31,8 +31,8 @@ class Menuedit extends Component
             'name' => 'required|min:2',
         ];
 
-         // Default data
-         $data = [
+        // Default data
+        $data = [
             'name'   => $this->name,
         ];
 
@@ -45,7 +45,6 @@ class Menuedit extends Component
         $this->emit('menucategoryUpdated', $menu);
         // This is to reset our public variables
         $this->cleanVars();
-
     }
 
 

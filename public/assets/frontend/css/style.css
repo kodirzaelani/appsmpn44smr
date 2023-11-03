@@ -79,6 +79,7 @@ Waves
 @import url(color_theme.css);
 /* @import url(color_theme_blue.css); */
 @import url(style_rtl.css);
+@import url(../../../assets/icons/bootstrap-icons/bootstrap-icons.css);
 @import url(../../../assets/icons/font-awesome/css/font-awesome.css);
 /* @import url(../../../assets/icons/fontawesome-free/css/all.min.css); */
 @import url(../../../assets/icons/themify-icons/themify-icons.css);

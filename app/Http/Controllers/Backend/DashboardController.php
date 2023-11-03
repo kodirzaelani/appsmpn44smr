@@ -31,4 +31,15 @@ class DashboardController extends Controller
             'title' => 'Dashboard'
         ]);
     }
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function fontawesome()
+    {
+        return view('template.backend.nusantara.main.fontawesome', [
+            'title' => 'Font Awesome'
+        ]);
+    }
 }

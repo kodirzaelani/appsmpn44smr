@@ -5,16 +5,15 @@ namespace App\Http\Livewire\Template\Backend\Nusantara\Menuitem;
 use App\Models\Page;
 use App\Models\Album;
 use Livewire\Component;
-use App\Models\Menufrontend;
 use App\Models\Postcategory;
+use Efectn\Menu\Models\Menus;
 use App\Models\Itemmenufrontend;
-use App\Models\Structuroganization;
 
 class Menuitemedit extends Component
 {
     public $label;
     public $link;
-    public $menu;
+    public $menu_id;
     public $typemenu;
     public $linkid;
     public $prevlink;
@@ -34,29 +33,29 @@ class Menuitemedit extends Component
 
         $model = Itemmenufrontend::find($this->modelId);
 
-        $this->label      = $model->label;
-        $this->link       = $model->link;
-        $this->menu       = $model->menu;
-        $this->typemenu   = $model->typemenu;
+        $this->label    = $model->label;
+        $this->link     = $model->link;
+        $this->menu_id  = $model->menu_id;
+        $this->typemenu = $model->typemenu;
         $this->prevlink = $model->link;
-        $this->target = $model->target;
+        $this->target   = $model->target;
     }
 
     public function update()
     {
         $validateData = [
-            'label'      => 'required|min:2',
-            'typemenu'   => 'required',
-            'menu'       => 'required',
+            'label'    => 'required|min:2',
+            'typemenu' => 'required',
+            'menu_id'  => 'required',
         ];
 
         $data = [];
         // Default data
         $data = [
-            'label'      => $this->label,
-            'typemenu'   => $this->typemenu,
-            'menu'       => $this->menu,
-            'target'     => $this->target,
+            'label'    => $this->label,
+            'typemenu' => $this->typemenu,
+            'menu_id'  => $this->menu_id,
+            'target'   => $this->target,
         ];
 
         $this->urlnow = config('app.url');
@@ -64,18 +63,18 @@ class Menuitemedit extends Component
         if ($this->link == '/') {
             $basicurl = $this->urlnow;
         } else {
-            $basicurl = $this->urlnow.'/'.$this->link;
+            $basicurl = $this->urlnow . '/' . $this->link;
         }
 
         if ($this->typemenu == 9) {
-            $blink   = $this->link;
-            $data = array_merge($data, [
-                'link'   => $blink,
+            $blink = $this->link;
+            $data  = array_merge($data, [
+                'link' => $blink,
             ]);
         } else {
-            $blink   = $basicurl;
-            $data = array_merge($data, [
-                'link'   => $blink,
+            $blink = $basicurl;
+            $data  = array_merge($data, [
+                'link' => $blink,
             ]);
         }
 
@@ -107,18 +106,17 @@ class Menuitemedit extends Component
         $this->emit('menuitemUpdated', $menuitem);
         // This is to reset our public variables
         $this->cleanVars();
-
     }
 
     private function cleanVars()
     {
         // Kosongkan field input
-        $this->label      = null;
-        $this->link       = null;
-        $this->menu       = null;
-        $this->typemenu   = null;
-        $this->linkid     = null;
-        $this->target = null;
+        $this->label    = null;
+        $this->link     = null;
+        $this->menu_id  = null;
+        $this->typemenu = null;
+        $this->linkid   = null;
+        $this->target   = null;
     }
     public function selectCancel($action)
     {
@@ -132,11 +130,10 @@ class Menuitemedit extends Component
     public function render()
     {
         return view('livewire.template.backend.nusantara.menuitem.menuitemedit', [
-            'menus' => Menufrontend::orderBy('name', 'asc')->where('status', '1')->get(),
-            'pages' => Page::orderBy('title', 'asc')->where('status', 1)->get(),
-            'albums' => Album::orderBy('title', 'asc')->where('status', 1)->get(),
+            'menus'        => Menus::orderBy('name', 'asc')->where('status', '1')->get(),
+            'pages'        => Page::orderBy('title', 'asc')->where('status', 1)->get(),
+            'albums'       => Album::orderBy('title', 'asc')->where('status', 1)->get(),
             'postcategory' => Postcategory::orderBy('title', 'asc')->get(),
-            'structuroganizations' => Structuroganization::where('status', 1)->get(),
         ]);
     }
 }

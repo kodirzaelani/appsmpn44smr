@@ -137,12 +137,21 @@
                                                             <a href="{{ route('backend.menuitem.index') }}"
                                                                 class="btn btn-xs btn-primary"
                                                                 title="List Menu Items"><i class="fa fa-list"
-                                                                    aria-hidden="true"></i></a>
-                                                            {{-- @if ($item->status == 1)
-                                                    <button wire:click="selectItem('{{ $item->id }}', 'inactive')" class="btn btn-xs btn-success" title="Change to InActive"><i class="fa fa-eye"></i></button>
-                                                    @else
-                                                    <button wire:click="selectItem('{{ $item->id }}', 'active')" class="btn btn-xs btn-default" title="Change to Active"><i class="fa fa-eye"></i></button>
-                                                    @endif --}}
+                                                                    aria-hidden="true"></i>
+                                                            </a>
+                                                            @if ($item->status == 1)
+                                                                <button
+                                                                    wire:click="selectItem('{{ $item->id }}', 'inactive')"
+                                                                    class="btn btn-xs btn-success"
+                                                                    title="Change to InActive"><i
+                                                                        class="fa fa-eye"></i></button>
+                                                            @else
+                                                                <button
+                                                                    wire:click="selectItem('{{ $item->id }}', 'active')"
+                                                                    class="btn btn-xs btn-default"
+                                                                    title="Change to Active"><i
+                                                                        class="fa fa-eye"></i></button>
+                                                            @endif
                                                             <button
                                                                 wire:click="selectItem('{{ $item->id }}', 'edit')"
                                                                 class="btn btn-xs btn-warning" title="Edit"><i

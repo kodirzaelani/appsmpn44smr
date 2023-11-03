@@ -1,5 +1,4 @@
 <div>
-    @section('title', 'List Menu Front End')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="d-flex align-items-center">
@@ -63,14 +62,6 @@
                                                 data-bs-toggle="modal" data-bs-target="#modalFormDeleteAll">
                                                 Delete Selected
                                             </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportExcel">
-                                                Export Excel
-                                            </a>
-                                            <a href="#" class="dropdown-item" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalFormExportPDF">
-                                                Export PDF
-                                            </a>
                                         </div>
                                     </div>
                                 @endif
@@ -130,6 +121,13 @@
                                                     <tbody>
                                                         <tr>
                                                             <th width="4%" scope="col">#</th>
+                                                            <th>
+                                                                <div class="checkbox">
+                                                                    <input id="checkbox2" type="checkbox"
+                                                                        wire:model="selectPage">
+                                                                    <label for="checkbox2"> </label>
+                                                                </div>
+                                                            </th>
                                                             @foreach ($headersTable as $key => $value)
                                                                 <th scope="col"
                                                                     wire:click.prevent="sortBy('{{ $key }}')"
@@ -151,30 +149,25 @@
                                                                 <th class="text-right" scope="row">
                                                                     {{ $no + $datamenuitem->firstItem() }}</th>
                                                                 <td>
+                                                                    <div class="checkbox">
+                                                                        <input type="checkbox"
+                                                                            id="Checkbox_{{ $no + $datamenuitem->firstItem() }}"
+                                                                            value="{{ $item->id }}"
+                                                                            wire:model="checked">
+                                                                        <label
+                                                                            for="Checkbox_{{ $no + $datamenuitem->firstItem() }}"></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
                                                                     {{ !empty($item->label) ? $item->label : '' }}</br>
                                                                     <small class="text-primary">
                                                                         <a target="_blank"
                                                                             href="{{ $item->link }}">{{ $item->link }}</a>
                                                                     </small>
-                                                                    {{-- @if ($item->typemenu == 1)
-                                                            <small class="text-primary">
-                                                                <a target="_blank" href="{{ $item->link }}">{{ $item->link }}</a>
-                                                            </small>
-                                                            @elseif ($item->typemenu == 9)
-                                                            <small class="text-primary"><a target="_blank" href="{{ $item->link }}">{{ $item->link }}</a></small>
-                                                            @else
-                                                            <small class="text-primary"><a target="_blank" href="{{ $item->linkid }}">{{ $item->linkid }}</a></small>
-                                                            @endif --}}
+
                                                                 </td>
-                                                                {{-- <td>
-                                                            @if ($item->paren > 0)
-                                                            {{ !empty($item->parent) ? $item->parent_menu->label:'' }}
-                                                            @else
-                                                            <span class="fw-bold">-</span>
-                                                            @endif
-                                                        </td> --}}
                                                                 <td>
-                                                                    {{ !empty($item->parent_menu) ? $item->parent_menu->name : '' }}
+                                                                    {{ !empty($item->parentMenu) ? $item->parentMenu->name : '' }}
                                                                 </td>
                                                                 <td class="text-center align-midle">
                                                                     @if ($item->status == 1)
@@ -258,8 +251,28 @@
             </div>
         </div>
     </div>
-
     {{-- Modal Delete --}}
+    {{-- Modal Delete All --}}
+    <div class="modal center-modal fade" id="modalFormDeleteAll" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Selected Item</h5>
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <h3>Are you sure you want to delete these Selected Records?</h3>
+                    </p>
+                </div>
+                <div class="modal-footer modal-footer-uniform">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button wire:click="deleteRecords()" class="btn btn-primary float-end">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal Delete All --}}
     @push('scripts')
         <script>
             // Sweet Alert

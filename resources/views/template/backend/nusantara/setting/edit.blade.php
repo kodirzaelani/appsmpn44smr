@@ -435,9 +435,9 @@
                                 </div>
                                 <div class="tab-pane" id="logo7" role="tabpanel">
                                     <div class="p-15">
-                                        <div class="row mb-5">
+                                        <div class="row mb-20">
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="box h-300">
+                                                <div class="box ">
                                                     <div class="box-header">
                                                         <h4 class="box-title">
                                                             Logo
@@ -477,7 +477,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-12">
-                                                <div class="box h-300">
+                                                <div class="box ">
                                                     <div class="box-header">
                                                         <h4 class="box-title">
                                                             Favicon
@@ -557,9 +557,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mt-5">
+                                        <div class="row mt-20">
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="box h-400">
+                                                <div class="box h-400 ">
                                                     <div class="box-header">
                                                         <h4 class="box-title">
                                                             Background Header
@@ -717,7 +717,7 @@
                                                     </h4>
                                                 </div>
                                                 <div class="box-body">
-                                                    <iframe src="{{ $option->maps }}" class="map" width="600"
+                                                    <iframe src="{{ $option->maps }}" class="map" width="100%"
                                                         height="450" style="border:0;" allowfullscreen=""
                                                         loading="lazy"
                                                         referrerpolicy="no-referrer-when-downgrade"></iframe>

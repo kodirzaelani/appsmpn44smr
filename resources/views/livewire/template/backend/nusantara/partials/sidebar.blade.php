@@ -14,7 +14,7 @@
                         </li>
                         <li class="header">Dashboard</li>
                         <li>
-                            <a href="{{ route('backend.admin') }}">
+                            <a href="{{ route('backend.dashboard') }}">
                                 <i class="icon-Layout-4-blocks"><span class="path1"></span><span
                                         class="path2"></span></i>
                                 <span>Dashboard</span>
@@ -240,13 +240,16 @@
 
                         @if (auth()->user()->can('settings.index') ||
                                 auth()->user()->can('religi.index') ||
-                                auth()->user()->can('jenjangpendidikan.index'))
+                                auth()->user()->can('jenjangpendidikan.index') ||
+                                auth()->user()->can('menu.index')))
                             <li class="header">SYSTEM CONFIGURATION</li>
                             @if (auth()->user()->can('settings.index') ||
                                     auth()->user()->can('religi.index') ||
-                                    auth()->user()->can('jenjangpendidikan.index'))
+                                    auth()->user()->can('jenjangpendidikan.index') ||
+                                    auth()->user()->can('menu.index')))
                                 <li
-                                    class="treeview {{ setActive('backend/allwidget') . setActive('backend/jenjangpendidikan') . setActive('backend/menu') . setActive('backend/settings') }} {{ setOpen('backend/allwidget') . setOpen('backend/jenjangpendidikan') . setOpen('backend/menu') . setOpen('backend/settings') }}">
+                                    class="treeview {{ setActive('backend/allwidget') . setActive('backend/jenjangpendidikan') . setActive('backend/menu') . setActive('backend/settings') . setActive('backend/menu') }}
+                                    {{ setOpen('backend/allwidget') . setOpen('backend/jenjangpendidikan') . setOpen('backend/menu') . setOpen('backend/settings') . setOpen('backend/menu') }}">
                                     <a href="#">
                                         <i class="icon-Settings-2"><span class="path1"></span><span
                                                 class="path2"></span></i>
@@ -264,9 +267,17 @@
                                                 </a>
                                             </li>
                                         @endcan
+                                        @can('mediasocial.index')
+                                            <li class="{{ setActive('backend/mediasocial') }}">
+                                                <a href="{{ route('backend.mediasocial.index') }}">
+                                                    <i class="icon-Commit"><span class="path1"></span><span
+                                                            class="path2"></span></i>Social Media
+                                                </a>
+                                            </li>
+                                        @endcan
                                         @if (auth()->user()->can('religi.index'))
                                             <li
-                                                class="{{ setActive('backend/religi') }} {{ setOpen('backend/religi') }}"">
+                                                class="{{ setActive('backend/religi') }} {{ setOpen('backend/religi') }}">
                                                 <a href="{{ route('backend.religi.index') }}">
                                                     <i class="icon-Commit"><span class="path1"></span><span
                                                             class="path2"></span></i>Religi
@@ -282,6 +293,16 @@
                                                 </a>
                                             </li>
                                         @endif
+                                        @if (auth()->user()->can('menu.index'))
+                                            <li
+                                                class="{{ setActive('backend/menu') }} {{ setOpen('backend/menu') }}">
+                                                <a href="{{ route('backend.menu.index') }}">
+                                                    <i class="icon-Commit"><span class="path1"></span><span
+                                                            class="path2"></span></i>Menu Frontend
+                                                </a>
+                                            </li>
+                                        @endif
+
                                     </ul>
                                 </li>
                             @endif

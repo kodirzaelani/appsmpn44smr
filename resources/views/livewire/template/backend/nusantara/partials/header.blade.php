@@ -11,10 +11,24 @@
             <a href="index.html" class="logo">
                 <!-- logo-->
                 <div class="logo-lg">
-                    <span class="light-logo"><img src="{{ asset('') }}assets/images/logo-dark-text.png"
-                            alt="logo"></span>
-                    <span class="dark-logo"><img src="{{ asset('') }}assets/images/logo-light-text.png"
-                            alt="logo"></span>
+                    @if ($global_option != '0')
+                        @if ($global_option->logo_menu)
+                            <span class="light-logo"><img
+                                    src="{{ asset('') }}uploads/images/logo/{{ $global_option->logo_menu }}"
+                                    alt="{{ config('app.name', 'App Web') }}" style="max-width: 60%" /></span>
+                            <span class="dark-logo"><img
+                                    src="{{ asset('') }}uploads/images/logo/{{ $global_option->logo_menu }}"
+                                    alt="{{ config('app.name', 'App Web') }}" style="max-width: 60%" /></span>
+                        @else
+                            <span class="light-logo"><img
+                                    src="{{ asset('') }}uploads/default/teras_petani_studio.png"
+                                    alt="{{ config('app.name', 'App Web') }}" style="max-width: 70%" /></span>
+                            <span class="dark-logo"><img
+                                    src="{{ asset('') }}uploads/default/teras_petani_studio.png"
+                                    alt="{{ config('app.name', 'App Web') }}" style="max-width: 70%" /></span>
+                        @endif
+                    @endif
+                    <!-- logo-->
                 </div>
             </a>
         </div>
@@ -147,7 +161,8 @@
                                 document.getElementById('logout-form').submit();">
                                     <i class="ti-lock text-muted me-2"></i>
                                     {{ __('Logout') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </li>

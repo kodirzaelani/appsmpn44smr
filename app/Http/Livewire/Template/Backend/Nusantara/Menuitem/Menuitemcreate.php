@@ -6,16 +6,15 @@ use App\Models\Page;
 use App\Models\Album;
 use Livewire\Component;
 use App\Models\Postcategory;
+use Efectn\Menu\Models\Menus;
 use App\Models\Itemmenufrontend;
-use NguyenHuy\Menu\Models\Menus;
-use App\Models\Structuroganization;
 
 class Menuitemcreate extends Component
 {
     public $label;
     public $status;
     public $link;
-    public $menu;
+    public $menu_id;
     public $typemenu;
     public $linkid;
     public $target;
@@ -27,7 +26,7 @@ class Menuitemcreate extends Component
     {
         $validateData = [
             'label'    => 'required|min:2',
-            'menu'     => 'required',
+            'menu_id'  => 'required',
             'typemenu' => 'required',
             'target'   => 'required',
             // 'link'     => 'required',
@@ -39,20 +38,20 @@ class Menuitemcreate extends Component
         if ($this->link == '/') {
             $basicurl = $this->urlnow;
         } else {
-            $basicurl = $this->urlnow.'/'.$this->link;
+            $basicurl = $this->urlnow . '/' . $this->link;
         }
 
         if ($this->typemenu == 9) {
-            $blink   = $this->link;
+            $blink = $this->link;
         } else {
-            $blink   = $basicurl;
+            $blink = $basicurl;
         }
 
 
-         // Default data
-         $data = [
+        // Default data
+        $data = [
             'label'    => $this->label,
-            'menu'     => $this->menu,
+            'menu_id'  => $this->menu_id,
             'typemenu' => $this->typemenu,
             'target'   => $this->target,
             'link'     => $blink,
@@ -66,19 +65,18 @@ class Menuitemcreate extends Component
         $this->emit('menuitemStored', $menuitem);
         // This is to reset our public variables
         $this->cleanVars();
-
     }
 
 
     private function cleanVars()
     {
         // Kosongkan field input
-        $this->label = null;
-        $this->link = null;
-        $this->menu = null;
+        $this->label    = null;
+        $this->link     = null;
+        $this->menu_id  = null;
         $this->typemenu = null;
-        $this->linkid = null;
-        $this->target = null;
+        $this->linkid   = null;
+        $this->target   = null;
     }
     public function selectCancel($action)
     {
@@ -92,12 +90,10 @@ class Menuitemcreate extends Component
     public function render()
     {
         return view('livewire.template.backend.nusantara.menuitem.menuitemcreate', [
-            'menus' => Menus::orderBy('name', 'asc')->where('status', 1)->get(),
-            'pages' => Page::orderBy('title', 'asc')->where('status', 1)->get(),
-            'albums' => Album::orderBy('title', 'asc')->where('status', 1)->get(),
+            'menus'        => Menus::orderBy('name', 'asc')->where('status', 1)->get(),
+            'pages'        => Page::orderBy('title', 'asc')->where('status', 1)->get(),
+            'albums'       => Album::orderBy('title', 'asc')->where('status', 1)->get(),
             'postcategory' => Postcategory::orderBy('title', 'asc')->get(),
-            'postcategory' => Postcategory::orderBy('title', 'asc')->get(),
-            'structuroganizations' => Structuroganization::where('status', 1)->get(),
         ]);
     }
 }

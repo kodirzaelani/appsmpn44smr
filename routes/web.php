@@ -17,9 +17,11 @@ use App\Http\Livewire\Template\Frontend\Nusantara\Post\Posttaglist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Album\Albumdetail;
 use App\Http\Livewire\Template\Frontend\Nusantara\Video\Videodetail;
 use App\Http\Livewire\Template\Frontend\Nusantara\Agenda\Agendadetail;
+use App\Http\Livewire\Template\Frontend\Nusantara\Contact\Contactindex;
 use App\Http\Livewire\Template\Frontend\Nusantara\Page\Pagecategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Post\Postcategorylist;
 use App\Http\Livewire\Template\Frontend\Nusantara\Greeting\Greetingdetail;
+use App\Models\Mediasocial;
 
 Route::get('/', Homeindex::class)->name('root');
 
@@ -41,6 +43,9 @@ Route::prefix('page')->group(function () {
 Route::prefix('greeting')->group(function () {
     Route::get('/detail/{slug}', Greetingdetail::class)->name('greeting.detail');
 });
+Route::prefix('contact')->group(function () {
+    Route::get('', Contactindex::class)->name('contact.detail');
+});
 
 Route::prefix('video')->group(function () {
     Route::get('', Videoall::class)->name('video.all');
@@ -60,7 +65,8 @@ Auth::routes();
 Route::middleware(['auth', 'web'])->group(function () {
 
     // Dashboard
-    Route::get('backend/admin/home', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('backend.admin');
+    Route::get('backend/admin/home', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('backend.dashboard');
+    Route::get('backend/admin/fontawesome', [App\Http\Controllers\Backend\DashboardController::class, 'fontawesome'])->name('backend.fontawesome');
 
     // Setting
     Route::get('backend/settings', [App\Http\Controllers\Backend\OptionController::class, 'setting'])->name('backend.settings');
@@ -89,6 +95,9 @@ Route::middleware(['auth', 'web'])->group(function () {
 
     // Agama
     Route::get('backend/religi', [App\Http\Controllers\Backend\AgamaController::class, 'index'])->name('backend.religi.index');
+
+    // Mediasocial
+    Route::get('backend/mediasocial', [App\Http\Controllers\Backend\MediasocialController::class, 'index'])->name('backend.mediasocial.index');
 
     // Jenjang Pendidikan
     Route::get('backend/jenjangpendidikan', [App\Http\Controllers\Backend\JenjangpendidikanController::class, 'index'])->name('backend.jenjangpendidikan.index');
@@ -171,7 +180,13 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('backend/download/{download}/edit', [App\Http\Controllers\Backend\DownloadController::class, 'edit'])->name('backend.download.edit');
     Route::put('backend/download/{download}/update', [App\Http\Controllers\Backend\DownloadController::class, 'update'])->name('backend.download.update');
 
-    Route::get('backend/admin/manage-menus/{id?}', [App\Http\Controllers\Backend\MenufrontendController::class, 'index'])->name('backend.dashboard');
+    Route::get('backend/manage-menus', [App\Http\Controllers\Backend\MenufrontendController::class, 'index'])->name('backend.menu.index');
+    Route::get('backend/menuitem', [App\Http\Controllers\Backend\MenufrontendController::class, 'menuitem'])->name('backend.menuitem.index');
+    Route::get('backend/menuitem/structure', [App\Http\Controllers\Backend\MenufrontendController::class, 'structure'])->name('backend.menuitem.structure');
+    Route::get('backend/menufrontend/structure', [App\Http\Controllers\Backend\MenufrontendController::class, 'menufrontend'])->name('backend.menuitem.menufrontend');
+
+    // Json Data for menu and menuitem
+    Route::get('backend/get/menuitem/{menu_id}', [App\Http\Controllers\Backend\MenufrontendController::class, 'getmenuitem'])->name('backend.menu.getmenuitem');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
@@ -186,5 +201,13 @@ View::composer('*', function ($view) {
         $view->with('global_option', $global_option);
     } else {
         $view->with('global_option', '0');
+    }
+});
+View::composer('*', function ($view) {
+    $global_socialmedia = Mediasocial::orderBy('created_at', 'asc')->get();
+    if (!empty($global_socialmedia)) {
+        $view->with('global_socialmedia', $global_socialmedia);
+    } else {
+        $view->with('global_socialmedia', '0');
     }
 });

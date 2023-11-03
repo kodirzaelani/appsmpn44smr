@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Template\Backend\Nusantara\Menu;
 
+use App\Models\Menufrontend;
 use Livewire\Component;
 use Livewire\WithPagination;
-use NguyenHuy\Menu\Models\Menus;
+// use NguyenHuy\Menu\Models\Menu;
 
 class Menuindex extends Component
 {
@@ -24,7 +25,7 @@ class Menuindex extends Component
     public $action;
     public $selectedItem;
 
-    public $name;
+    public $title;
 
 
     protected $listeners = [
@@ -41,7 +42,7 @@ class Menuindex extends Component
     private function headerConfig()
     {
         return [
-            'name' => 'Position',
+            'name' => 'Title',
             // 'status'  => 'Status',
         ];
     }
@@ -51,14 +52,13 @@ class Menuindex extends Component
         $this->sortColumn = $column;
 
         $this->sortDirection = $this->reverseSort();
-
     }
 
     public function reverseSort()
     {
         return $this->sortDirection === 'asc'
-        ? 'desc'
-        : 'asc';
+            ? 'desc'
+            : 'asc';
     }
 
     public function mount()
@@ -66,7 +66,6 @@ class Menuindex extends Component
         $this->fill(request()->only('search', 'currentPage'));
         $this->resetSearch();
         $this->headersTable = $this->headerConfig();
-
     }
 
     public function resetSearch()
@@ -82,8 +81,8 @@ class Menuindex extends Component
     public function getMenucategoryQueryProperty()
     {
 
-        return Menus::orderBy($this->sortColumn, $this->sortDirection)
-        ->search(trim($this->search)); //search menggunakan scopeSearch di model
+        return Menufrontend::orderBy($this->sortColumn, $this->sortDirection)
+            ->search(trim($this->search)); //search menggunakan scopeSearch di model
     }
 
     public function getMenucategoryProperty()
@@ -123,13 +122,13 @@ class Menuindex extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'type'=>'success',
-            'text'=>'Menu ' . $menucategory['name'] . ' was Stored',
-            'toast'=>true, // Jika mau menggunakan toas
-            'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'timer' => 5000,
+            'type' => 'success',
+            'text' => 'Menu ' . $menucategory['name'] . ' was Stored',
+            'toast' => true, // Jika mau menggunakan toas
+            'position' => 'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->resetErrorBag();
         $this->resetValidation();
@@ -140,13 +139,13 @@ class Menuindex extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'type'=>'success',
-            'text'=>'Menu ' . $menucategory['name'] . ' was Updated',
+            'timer' => 5000,
+            'type' => 'success',
+            'text' => 'Menu ' . $menucategory['name'] . ' was Updated',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->statusUpdate = false;
     }
@@ -162,7 +161,7 @@ class Menuindex extends Component
         } elseif ($action == 'edit') {
             $this->statusUpdate = true;
             $this->emit('getModelId', $this->selectedItem);
-        }  elseif ($action == 'inactive'){
+        } elseif ($action == 'inactive') {
             $this->changeInactive();
         } elseif ($action == 'active') {
             $this->changeActive();
@@ -171,49 +170,49 @@ class Menuindex extends Component
     // Delete Single Record
     public function delete()
     {
-        Menus::destroy($this->selectedItem);
+        Menufrontend::destroy($this->selectedItem);
 
-            // Sweet alert
-            $this->dispatchBrowserEvent('swal:modaldelete', [
-                'title' => 'Deleted Success!',
-                'timer' => 4000,
-                'icon'  => 'success',
-                'text'  => 'Menu was deleted',
-                // 'toast'=>true, // Jika mau menggunakan toas
-                // 'position'=>'top-right', // Jika mau menggunakan toas
-                'showConfirmButton' => true,
-                'showCancelButton'  => false,
-            ]);
+        // Sweet alert
+        $this->dispatchBrowserEvent('swal:modaldelete', [
+            'title' => 'Deleted Success!',
+            'timer' => 4000,
+            'icon'  => 'success',
+            'text'  => 'Menu was deleted',
+            // 'toast'=>true, // Jika mau menggunakan toas
+            // 'position'=>'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton'  => false,
+        ]);
 
 
-            $this->emit('refreshParent');
-            // This will hide the modal in the frontend
-            $this->dispatchBrowserEvent('closeDeleteModal');
+        $this->emit('refreshParent');
+        // This will hide the modal in the frontend
+        $this->dispatchBrowserEvent('closeDeleteModal');
     }
     public function changeInactive()
     {
-       $data = [];
-       $data = array_merge($data, ['status' => 0]);
-       $post = Menus::find($this->selectedItem);
+        $data = [];
+        $data = array_merge($data, ['status' => 0]);
+        $post = Menufrontend::find($this->selectedItem);
 
-       $post->update($data);
-       session()->flash('success', 'Menu Change to Draft was successfully');
-       return redirect()->to('backend/admin/categorymenu');
+        $post->update($data);
+        session()->flash('success', 'Menu Change to Draft was successfully');
+        return redirect()->to('backend/manage-menus');
     }
     public function changeActive()
     {
-       $data = [];
-       $data = array_merge($data, ['status' => 1]);
-       $post = Menus::find($this->selectedItem);
+        $data = [];
+        $data = array_merge($data, ['status' => 1]);
+        $post = Menufrontend::find($this->selectedItem);
 
-       $post->update($data);
-       session()->flash('success', 'Menu Change to Active was successfully');
-       return redirect()->to('backend/admin/categorymenu');
+        $post->update($data);
+        session()->flash('success', 'Menu Change to Active was successfully');
+        return redirect()->to('backend/manage-menus');
     }
 
     public function render()
     {
-        return view('livewire.template.backend.nusantara.menu.menuindex',[
+        return view('livewire.template.backend.nusantara.menu.menuindex', [
             'datamenucategory' => $this->menucategory,
         ]);
     }

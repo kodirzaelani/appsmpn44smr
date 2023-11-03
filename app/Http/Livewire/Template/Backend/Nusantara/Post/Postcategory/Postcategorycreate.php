@@ -39,7 +39,7 @@ class Postcategorycreate extends Component
         // Default data
         $data = [
             'title'     => $this->title,
-            'slug'      => Str::slug($this->title,),
+            'slug'      => Str::slug($this->title),
             'parent_id' => $this->parent_id,
         ];
 

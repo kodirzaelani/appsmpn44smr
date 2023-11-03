@@ -7,10 +7,15 @@
                         <div class="widget">
                             <h4 class="footer-title pb-15 bb-1">Tentang SMPN 44 Samarinda</h4>
                             <ul class="list-unstyled mb-30">
-                                <li><a href="#">Profil</a></li>
-                                <li><a href="#">Visi dan Misi</a></li>
-                                <li><a href="#">Struktur</a></li>
-                                <li><a href="#">Kepala Sekolah</a></li>
+                                @if ($public_menu_footer)
+                                    @foreach ($public_menu_footer as $menu)
+                                        <li>
+                                            <a href="{{ $menu['link'] }}" target="{{ $menu['target'] }}">
+                                                {{ $menu['label'] }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>

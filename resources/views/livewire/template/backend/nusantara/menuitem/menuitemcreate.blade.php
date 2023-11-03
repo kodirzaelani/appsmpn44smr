@@ -9,12 +9,12 @@
                     <label class="form-label">Menu Postion :</label>
                     <div class="demo-radio-button in-line">
                         @foreach ($menus as $item)
-                            <input value="{{ $item->id }}" wire:model="menu" type="radio"
+                            <input value="{{ $item->id }}" wire:model="menu_id" type="radio"
                                 id="radio_{{ $item->id }}"
-                                class="@error('menu') is-invalid @enderror with-gap radio-col-primary" />
+                                class="@error('menu_id') is-invalid @enderror with-gap radio-col-primary" />
                             <label for="radio_{{ $item->id }}">{{ $item->name }}</label>
                         @endforeach
-                        @error('menu')
+                        @error('menu_id')
                             <div class="form-control-feedback"><small> <code>{{ $message }}</code> </small></div>
                         @enderror
                     </div>
@@ -25,7 +25,7 @@
                         <option value="" holder>Select Type Menu </option>
                         <option value="1">Custome Internal </option>
                         <option value="2">Page </option>
-                        <option value="3">Post Update </option>
+                        <option value="3">Post Category </option>
                         <option value="4">Galery Album </option>
                         <option value="5">Contact </option>
                         <option value="6">Literacy </option>
@@ -114,12 +114,10 @@
                     <div class="form-group @error('link') has-error @enderror">
                         <label class="form-label">Link <span class="text-danger">*</span></label>
                         <select class="form-control select2" style="width: 100%;" wire:model="link" required>
-                            <option value="" holder>Select Post Update </option>
-                            <option value="posts/news/">Update Berita </option>
-                            <option value="posts/news/">Update Artikel </option>
+                            <option value="" holder>Select Post Category </option>
                             @foreach ($postcategory as $item)
                                 @if ($item->posts->where('status', 1)->count() > 0)
-                                    <option value="posts/category/{{ $item->slug }}"
+                                    <option value="berita/kategori/{{ $item->slug }}"
                                         {{ old('link') == $item->id ? 'selected' : '' }}>{{ $item->title }}
                                     </option>
                                 @endif

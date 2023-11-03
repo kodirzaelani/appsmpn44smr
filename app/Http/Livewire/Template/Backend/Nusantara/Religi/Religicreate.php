@@ -19,8 +19,8 @@ class Religicreate extends Component
             'nama' => 'required|min:2|unique:agama,nama',
         ];
 
-         // Default data
-         $data = [
+        // Default data
+        $data = [
             'agamaid'        => $this->agamaid,
             'nama' => $this->nama,
         ];
@@ -33,7 +33,6 @@ class Religicreate extends Component
         $this->emit('religiStored', $religi);
         // This is to reset our public variables
         $this->cleanVars();
-
     }
 
 

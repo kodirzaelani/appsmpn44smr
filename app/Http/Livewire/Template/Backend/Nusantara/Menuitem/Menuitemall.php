@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Template\Backend\Nusantara\Menuitem;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use NguyenHuy\Menu\Models\MenuItems;
+use Efectn\Menu\Models\MenuItems;
 
 class Menuitemall extends Component
 {
@@ -53,14 +53,13 @@ class Menuitemall extends Component
         $this->sortColumn = $column;
 
         $this->sortDirection = $this->reverseSort();
-
     }
 
     public function reverseSort()
     {
         return $this->sortDirection === 'asc'
-        ? 'desc'
-        : 'asc';
+            ? 'desc'
+            : 'asc';
     }
 
     public function mount()
@@ -68,7 +67,6 @@ class Menuitemall extends Component
         $this->fill(request()->only('search', 'currentPage'));
         $this->resetSearch();
         $this->headersTable = $this->headerConfig();
-
     }
 
     public function resetSearch()
@@ -85,7 +83,7 @@ class Menuitemall extends Component
     {
 
         return MenuItems::orderBy($this->sortColumn, $this->sortDirection)
-        ->search(trim($this->search)); //search menggunakan scopeSearch di model
+            ->search(trim($this->search)); //search menggunakan scopeSearch di model
     }
 
     public function getMenuitemProperty()
@@ -132,13 +130,13 @@ class Menuitemall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Menu Item ' . $menuitem['label'] . ' was Stored',
-            'toast'=>true, // Jika mau menggunakan toas
-            'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Menu Item ' . $menuitem['label'] . ' was Stored',
+            'toast' => true, // Jika mau menggunakan toas
+            'position' => 'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->statusUpdate = 0;
         $this->resetErrorBag();
@@ -150,13 +148,13 @@ class Menuitemall extends Component
         // Sweet alert
         $this->dispatchBrowserEvent('swal:modal', [
             'title' => 'Success!',
-            'timer'=>5000,
-            'icon'=>'success',
-            'text'=>'Menu Item ' . $menuitem['label'] . ' was Updated',
+            'timer' => 5000,
+            'icon' => 'success',
+            'text' => 'Menu Item ' . $menuitem['label'] . ' was Updated',
             // 'toast'=>true, // Jika mau menggunakan toas
             // 'position'=>'top-right', // Jika mau menggunakan toas
-            'showConfirmButton'=>true,
-            'showCancelButton'=>false,
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
         ]);
         $this->statusUpdate = 0;
         $this->resetErrorBag();
@@ -176,7 +174,7 @@ class Menuitemall extends Component
             $this->emit('getModelId', $this->selectedItem);
         } elseif ($action == 'add') {
             $this->statusUpdate = 2;
-        }  elseif ($action == 'inactive'){
+        } elseif ($action == 'inactive') {
             $this->changeInactive();
         } elseif ($action == 'active') {
             $this->changeActive();
@@ -184,23 +182,23 @@ class Menuitemall extends Component
     }
     public function changeInactive()
     {
-       $data = [];
-       $data = array_merge($data, ['status' => 0]);
-       $post = MenuItems::find($this->selectedItem);
+        $data = [];
+        $data = array_merge($data, ['status' => 0]);
+        $post = MenuItems::find($this->selectedItem);
 
-       $post->update($data);
-       session()->flash('success', 'MenuItems Change to InAcctive was successfully');
-       return redirect()->to('backend/menuitem');
+        $post->update($data);
+        session()->flash('success', 'MenuItems Change to InAcctive was successfully');
+        return redirect()->to('backend/menuitem');
     }
     public function changeActive()
     {
-       $data = [];
-       $data = array_merge($data, ['status' => 1]);
-       $post = MenuItems::find($this->selectedItem);
+        $data = [];
+        $data = array_merge($data, ['status' => 1]);
+        $post = MenuItems::find($this->selectedItem);
 
-       $post->update($data);
-       session()->flash('success', 'MenuItems Change to Active was successfully');
-       return redirect()->to('backend/menuitem');
+        $post->update($data);
+        session()->flash('success', 'MenuItems Change to Active was successfully');
+        return redirect()->to('backend/menuitem');
     }
 
     public function delete()
@@ -224,9 +222,32 @@ class Menuitemall extends Component
         $this->dispatchBrowserEvent('closeDeleteModal');
     }
 
+    public function deleteRecords()
+    {
+        MenuItems::whereKey($this->checked)->delete();
+
+        $this->checked = [];
+        $this->selectAll = false;
+        $this->selectPage = false;
+        // Sweet alert
+        $this->dispatchBrowserEvent('swal:modal', [
+            'title' => 'Deleted Success!',
+            'timer' => 4000,
+            'icon' => 'success',
+            'text' => 'Selected Records were deleted Successfully',
+            // 'toast'=>true, // Jika mau menggunakan toas
+            // 'position'=>'top-right', // Jika mau menggunakan toas
+            'showConfirmButton' => true,
+            'showCancelButton' => false,
+        ]);
+        $this->emit('refreshParent');
+        $this->dispatchBrowserEvent('closeDeleteModalAll');
+        // $this->resetPage();
+    }
+
     public function render()
     {
-        return view('livewire.template.backend.nusantara.menuitem.menuitemall',[
+        return view('livewire.template.backend.nusantara.menuitem.menuitemall', [
             'datamenuitem' => $this->menuitem,
         ]);
     }

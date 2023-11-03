@@ -22,4 +22,9 @@ class Menu extends Model
             $query->where('title', 'like', $term);
         });
     }
+
+    public function menuitem()
+    {
+        return $this->hasMany(Menuitem::class, 'menu_id');
+    }
 }

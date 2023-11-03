@@ -54,6 +54,7 @@
     <script src="{{ asset('') }}assets/vendor_components/fullcalendar/fullcalendar.js"></script>
     <script src="{{ asset('') }}assets/vendor_components/sweetalert/sweetalert.min.js"></script>
     {{-- <script src="{{ asset('') }}assets/vendor_components/sweetalert/jquery.sweet-alert.custom.js"></script> --}}
+    @stack('script')
 
     <!-- EduAdmin App -->
     <script src="{{ asset('') }}assets/backend/js/template.js"></script>
