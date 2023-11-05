@@ -31,7 +31,7 @@
                     <div class="box box-body p-40 bg-dark mb-0">
                         <h2>Kontak Kami</h2>
                         @if ($global_option != '0')
-                            <p>Silahkan Menghubungi kami malalui salah satu layana di bawha ini!</p>
+                            <p>Silahkan Menghubungi kami malalui salah satu layana di bawah ini!</p>
                             <div class="widget fs-18 my-20 py-20 by-1 border-light">
                                 <ul class="list list-unstyled text-white-80">
                                     <li class="ps-40"><i

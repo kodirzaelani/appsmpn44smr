@@ -41,10 +41,22 @@ return [
             'provider' => 'users',
         ],
 
+        'api' => [
+            'driver' => 'jwt',      // <-- set ke "jwt"
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
         // tambahan
         'customer' => [
             'driver' => 'session',
             'provider' => 'customers',
+        ],
+
+        'api' => [
+            'driver' => 'jwt',      // <-- set ke "jwt"
+            'provider' => 'customers',
+            'hash' => false,
         ],
     ],
 
